@@ -1,2 +1,10 @@
 # Sanm-ZH.github.io
-if(){}else{}
+<html>
+  <style>
+    h1{
+      color:red;
+    }
+  </style>
+  
+  <h1>if(){}else{}</h1>
+</html>
