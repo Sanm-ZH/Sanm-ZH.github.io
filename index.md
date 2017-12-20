@@ -8,23 +8,23 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 这家伙很懒，没有什么更新！
 
-# [一、](#header-1)界面
+# [](#header-2)界面
 
 浏览器上面的直接体现
 
-# [1. ](#header-2)HTML+CSS
+## [1. ](#header-3)HTML+CSS
 
 > < html>
->   < title>Hello World< /title>
->   < body>
->     < div style="color:red">Hello World!< /div>
->   < /body>
+> < title>Hello World< /title>
+> < body>
+> < div style="color:red">Hello World!< /div>
+> < /body>
 > < /html>
 > 去除标签前面的空格
 > ===>
 > <div style="color:red">Hello World!</div>
 
-# [2. ](#header-2)JS
+## [2. ](#header-3)JS
 
 ```js
 // Javascript code with syntax highlighting.
