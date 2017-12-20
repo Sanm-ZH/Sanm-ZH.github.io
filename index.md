@@ -8,20 +8,21 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 这家伙很懒，没有什么更新！
 
-# [](#header-1)前端界面
+# [](#header-1)界面
 
 浏览器上面的直接体现
 
-## [](#header-2)HTML+CSS
+# [](#header-2)HTML+CSS
 
-> <html>
+> <!--<html>
 >   <title>Hello World</title>
 >   <body>
 >     <div style="color:red">Hello World!</div>
 >   </body>
-> </html>
+> </html>-->
+> <div style="color:red">Hello World!</div>
 
-### [](#header-3)JS
+## [](#header-3)JS
 
 ```js
 // Javascript code with syntax highlighting.
@@ -38,87 +39,9 @@ GitHubPages::Dependencies.gems.each do |gem, version|
 end
 ```
 
-#### [](#header-4)Header 4
+## [](#header-1)动态行为
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+JS多Dom的一些操作
 
-##### [](#header-5)Header 5
+# [2](#header-2)事件
 
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### [](#header-6)Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![](https://assets-cdn.github.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
