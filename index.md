@@ -12,18 +12,18 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 浏览器上面的直接体现
 
-## [1. ](#header-3)HTML+CSS
+## [](#header-3)HTML+CSS
 
-# [](#header-6)<html>
-# [](#header-6) <title>Hello World</title>
-# [](#header-6) <body>
-# [](#header-6)   <div style="color:red">Hello World!</div>
-# [](#header-6) </body>
-# [](#header-6)</html>
+# [](#header-5)<html>
+# [](#header-5) <title>Hello World</title>
+# [](#header-5) <body>
+# [](#header-5)   <div style="color:red">Hello World!</div>
+# [](#header-5) </body>
+# [](#header-5)</html>
 > ===>
 > <div style="color:red">Hello World!</div>
 
-## [2. ](#header-3)JS
+## [](#header-3)JS
 
 ```js
 // Javascript code with syntax highlighting.
