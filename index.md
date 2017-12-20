@@ -8,21 +8,23 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 这家伙很懒，没有什么更新！
 
-# [](#header-1)界面
+[一、](#header-1)界面
 
 浏览器上面的直接体现
 
-# [](#header-2)HTML+CSS
+[1.](#header-2)HTML+CSS
 
-> <!--<html>
->   <title>Hello World</title>
->   <body>
->     <div style="color:red">Hello World!</div>
->   </body>
-> </html>-->
+> < html>
+>   < title>Hello World< /title>
+>   < body>
+>     < div style="color:red">Hello World!< /div>
+>   < /body>
+> < /html>
+> 去除标签前面的空格
+> ===>
 > <div style="color:red">Hello World!</div>
 
-## [](#header-3)JS
+## [2.](#header-2)JS
 
 ```js
 // Javascript code with syntax highlighting.
@@ -43,5 +45,5 @@ end
 
 JS多Dom的一些操作
 
-# [2](#header-2)事件
+# [](#header-2)事件
 
