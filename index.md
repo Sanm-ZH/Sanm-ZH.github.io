@@ -12,19 +12,18 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 浏览器上面的直接体现
 
-## [1. ](#header-3)HTML+CSS
+  ## [1. ](#header-3)HTML+CSS
 
-> < html>
-> < title>Hello World< /title>
-> < body>
-> < div style="color:red">Hello World!< /div>
-> < /body>
-> < /html>
-> 去除标签前面的空格
-> ===>
+ <!-- <html>
+  <title>Hello World</title>
+  <body>
+    <div style="color:red">Hello World!</div>
+  </body>
+ </html> -->
+
 > <div style="color:red">Hello World!</div>
 
-## [2. ](#header-3)JS
+  ## [2. ](#header-3)JS
 
 ```js
 // Javascript code with syntax highlighting.
