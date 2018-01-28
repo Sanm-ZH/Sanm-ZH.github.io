@@ -46,3 +46,5 @@ JS多Dom的一些操作
 
 # [](#header-2)事件
 
+案例：[贪吃蛇]('./testHTML/snake2.html')
+
