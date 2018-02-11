@@ -5,16 +5,18 @@
   <meta charset="UTF-8">
   <title>贪吃蛇</title>
   <style>
-    body{
+    body {
       background: rgb(206, 164, 26);
     }
+
     #canvas {
       background: #2ddcec;
       border: 10px solid rgb(11, 157, 224);
-      margin:10px auto;
+      margin: 10px auto;
       display: block;
     }
-    h1{
+
+    h1 {
       color: green;
       text-align: center
     }
@@ -126,20 +128,20 @@
         //   var snake = new Snake(0, snakes[0].y, snakes[0].w, 250);
         //   snake.init();
         // } else {
-          if (t.dir == 'R') {
-            if (snakes[0].x + snakes[0].w == canvas.width) {
-              snakes.forEach((v,i) => {
-                snakes[i].x = -10;
-              });
-            }
-            newHead = new Node(snakes[0].x + gridWidth, snakes[0].y, gridWidth);
-          } else if (t.dir == 'L') {
-            newHead = new Node(snakes[0].x - gridWidth, snakes[0].y, gridWidth);
-          } else if (t.dir == 'D') {
-            newHead = new Node(snakes[0].x, snakes[0].y + gridWidth, gridWidth);
-          } else if (t.dir == 'U') {
-            newHead = new Node(snakes[0].x, snakes[0].y - gridWidth, gridWidth);
+        if (t.dir == 'R') {
+          if (snakes[0].x + snakes[0].w == canvas.width) {
+            snakes.forEach((v, i) => {
+              snakes[i].x = -10;
+            });
           }
+          newHead = new Node(snakes[0].x + gridWidth, snakes[0].y, gridWidth);
+        } else if (t.dir == 'L') {
+          newHead = new Node(snakes[0].x - gridWidth, snakes[0].y, gridWidth);
+        } else if (t.dir == 'D') {
+          newHead = new Node(snakes[0].x, snakes[0].y + gridWidth, gridWidth);
+        } else if (t.dir == 'U') {
+          newHead = new Node(snakes[0].x, snakes[0].y - gridWidth, gridWidth);
+        }
         // }
 
         //禁止反向跑
