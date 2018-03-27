@@ -49,5 +49,5 @@ JS多Dom的一些操作
 案例：[贪吃蛇](/testHTML/snake2.html)
 
 
-Vue入门：[Todo](https://github.com/Sanm-ZH/vue-todo/tree/master/dist/index.html)
+Vue入门：[Todo](/vue-todo/dist/index.html)
 
