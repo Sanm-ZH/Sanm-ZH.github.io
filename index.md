@@ -5,6 +5,13 @@ layout: default
 [UP UP UP](another-page).
 
  ~~这家伙很懒，没有什么更新！~~ &#x1F602;
+
+弗曼学习法
+- 选择一个你想理解的知识
+- 设想你要向别人传授这个知识
+- 如果过程中出现问题就重新回顾这个知识
+- 让你的讲解越来越简单易懂
+
 ## [](#header-2)Gou Wa Zi
 
 ### [](#header-3)HTML canvas：[搞蛇](/testHTML/snake2.html)
