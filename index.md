@@ -12,7 +12,7 @@ layout: default
 - 如果过程中出现问题就重新回顾这个知识
 - 让你的讲解越来越简单易懂
 
-## [](#header-2)Gou Wa Zi
+## [](#header-2)DiDiDi
 
 ### [](#header-3)HTML canvas：[搞蛇](/testHTML/snake2.html)
 
