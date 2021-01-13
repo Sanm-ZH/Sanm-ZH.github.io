@@ -22,4 +22,6 @@ layout: default
 
 ### [](#header-3)Vue - 壹：[Todo](/vue-todo/dist/index.html)
 
-### [](#header-3)Vue - 贰：[Vue3](/vue3-learn/dist/index.html)
+### [](#header-3)Vue - 贰：[Vue3学习文档](https://sanm-zh.github.io/vue3-doc)
+
+### [](#header-3)Vue - 叁：[Vue3-deom](/vue3-learn/dist/index.html)
