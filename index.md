@@ -24,4 +24,4 @@ layout: default
 
 ### [](#header-3)Vue - 贰：[Vue3学习文档](https://sanm-zh.github.io/vue3-doc)
 
-### [](#header-3)Vue - 叁：[Vue3-deom](/vue3-learn/dist/index.html)
+### [](#header-3)Vue - 叁：[Vue3-demo](/vue3-learn/index.html)
