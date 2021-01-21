@@ -24,4 +24,4 @@ layout: default
 
 ### [](#header-3)Vue - 贰：[Vue3学习文档](/vue3-doc/)
 
-### [](#header-3)Vue - 叁：[Vue3-demo](/vue-ts-vite/)
+### [](#header-3)Vue - 叁：[Vue3-demo](/vue3-ts-vite/)
