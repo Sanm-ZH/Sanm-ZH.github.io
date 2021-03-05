@@ -70,13 +70,13 @@ export default {
       });
     },
     initTips() {
-      console.log(`
-                    _                            _ _           ____     _ 
-      __      _____| | ___ ___  _ __ ___   ___  | (_)_   _____|___ \\ __| |
-      \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ \` _ \\ / _ \\ | | \\ \\ / / _ \\ __) / _\` |
-       \\ V  V /  __/ | (_| (_) | | | | | |  __/ | | |\\ V /  __// __/ (_| |
-        \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___| |_|_| \\_/ \\___|_____\\__,_|
-      `)
+      // console.log(`
+      //               _                            _ _           ____     _ 
+      // __      _____| | ___ ___  _ __ ___   ___  | (_)_   _____|___ \\ __| |
+      // \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ \` _ \\ / _ \\ | | \\ \\ / / _ \\ __) / _\` |
+      //  \\ V  V /  __/ | (_| (_) | | | | | |  __/ | | |\\ V /  __// __/ (_| |
+      //   \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___| |_|_| \\_/ \\___|_____\\__,_|
+      // `)
 
       let now = (new Date()).getHours();
       if (now > 23 || now <= 5) this.message = this.getRandText(WAIFU.hour_tips['t23-5']);
@@ -126,7 +126,7 @@ export default {
         click.forEach(item => {
           this.$(item.selector).forEach(_item => {
             _item.addEventListener('click', (res) => {
-              console.log(1)
+              // console.log(1)
               this.message = this.getRandText(item.text)
               this.showMessage(3000)
             })

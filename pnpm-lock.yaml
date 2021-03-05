@@ -4,6 +4,7 @@ devDependencies:
   gh-pages: 3.1.0
   vuepress: 1.7.1
   vuepress-plugin-boxx: 0.0.7
+  vuepress-plugin-cursor-effects: 1.0.2
   vuepress-plugin-dynamic-title: 1.0.0
   vuepress-theme-reco: 1.6.1_491056cf79219a60a6f46416a531d40d
 lockfileVersion: 5.2
@@ -9921,6 +9922,11 @@ packages:
     resolution:
       integrity: sha1-N//wVmL+29Y//TpUY7JZLHp/MTM=
       tarball: vuepress-plugin-container/download/vuepress-plugin-container-2.1.5.tgz
+  /vuepress-plugin-cursor-effects/1.0.2:
+    dev: true
+    resolution:
+      integrity: sha1-iBVMXwSROd7Hwm+nXkXOoRXZAwA=
+      tarball: vuepress-plugin-cursor-effects/download/vuepress-plugin-cursor-effects-1.0.2.tgz
   /vuepress-plugin-disqus/0.2.0:
     dependencies:
       vue-disqus: 3.0.5
@@ -10447,5 +10453,6 @@ specifiers:
   vue-class-component: ^7.2.6
   vuepress: 1.7.1
   vuepress-plugin-boxx: ^0.0.7
+  vuepress-plugin-cursor-effects: ^1.0.2
   vuepress-plugin-dynamic-title: ^1.0.0
   vuepress-theme-reco: 1.6.1

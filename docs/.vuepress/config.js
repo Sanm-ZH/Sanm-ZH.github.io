@@ -134,20 +134,21 @@ module.exports = {
       'messageStyle': {
         'position': 'fixed',
         'right': '75px',
-        'bottom': '235px',
+        'bottom': '180px',
         'opacity': '0.75',
         'height': 'max-content',
         'width': '200px',
-        'fon-szie': '16px'
+        'fon-size': '14px'
       },
       'modelStyle': {
         'position': 'fixed',
         'right': '90px',
-        'bottom': '-20px',
+        'bottom': '0px',
         'opacity': '1'
       },
-      'width': 216,
-      'height': 281.6
+      'width': 146,
+      'height': 200,
+      'clean': true
     }],
     [
       'dynamic-title',
@@ -156,6 +157,7 @@ module.exports = {
         'hideText': '(＞人＜;)呀！主人我走丢了, 看到我了嘛？',
         'recoverTime': 2000
       }
-    ]
+    ],
+    ['cursor-effects']
   ]
 }
