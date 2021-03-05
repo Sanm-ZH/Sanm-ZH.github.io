@@ -164,7 +164,7 @@ module.exports = {
     ],
     ['cursor-effects'],
     ['sitemap', {
-      'hostname': 'sanm-zh.gitee.io',
+      'hostname': 'https://sanm-zh.gitee.io',
       'exclude': ['/404.html'],
       'dateFormatter': val => {
         return new Date().toISOString()
