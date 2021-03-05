@@ -113,8 +113,12 @@ module.exports = {
      */
 
     valineConfig: {
-      appId: '...',// your appId
-      appKey: '...', // your appKey
+      appId: 'iJWgM9MSaD5hqEfcRApgG6cg-MdYXbMMI',// your appId
+      appKey: 'PmhdeuGvd8gEgXxtKubi8SKd', // your appKey
+      placeholder: '文明发言, 您的支持将是我继续下去的动力...',
+      notify: true,
+      verify: true,
+      visitor: true
     }
   },
   markdown: {
@@ -158,6 +162,30 @@ module.exports = {
         'recoverTime': 2000
       }
     ],
-    ['cursor-effects']
+    ['cursor-effects'],
+    ['sitemap', {
+      'hostname': () => {
+        let url = 'sanm-zh.github.io'
+        if (window.location.href.includes('gitee')) {
+          url = 'sanm-zh.gitee.io'
+        }
+        return url
+      },
+      'exclude': ['/404.html'],
+      'dateFormatter': val => {
+        return new Date().toISOString()
+      }
+    }],
+    [
+      '@vuepress/last-updated',
+      {
+        transformer: timestamp => {
+          const dayjs = require('dayjs')
+          const relativeTime = require('dayjs/plugin/relativeTime')
+          dayjs.extend(relativeTime)
+          return dayjs(timestamp).fromNow()
+        }
+      }
+    ]
   ]
 }
