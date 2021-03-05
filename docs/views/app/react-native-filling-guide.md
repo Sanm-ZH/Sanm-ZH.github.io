@@ -6,7 +6,7 @@ tags: [ReactNative, HybridApp, App]
 date: 2020-07-02 20:58:47
 ---
 
-<Boxx changeTime="10000"/>
+<Boxx changeTime="30000"/>
 
 ::: tip 前言
 开始学习 React Native, 期间也遇上了许多坑, 本篇将在官方文档基础上补充一些填坑的指南。
