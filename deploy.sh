@@ -6,10 +6,10 @@ set -e
 pnpm build
 
 git push origin master:master
-pnpm push-pages
+pnpx gh-pages -d docs/dist
 
 git remote set-url origin git@gitee.com:sanm-zh/sanm-zh.git
 git push origin master:master
-pnpm push-pages
+pnpx gh-pages -d docs/dist
 
 git remote set-url origin git@github.com:Sanm-ZH/Sanm-ZH.github.io.git

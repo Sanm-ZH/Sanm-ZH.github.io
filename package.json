@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "push-pages": "gh-pages -d docs/dist",
     "deploy": "bash deploy.sh"
   },
   "devDependencies": {
