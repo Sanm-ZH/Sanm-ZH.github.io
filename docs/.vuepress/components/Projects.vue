@@ -31,68 +31,68 @@
 </template>
 
 <script>
-  import Common from "@theme/components/Common.vue";
-  import { httpGet } from "./utils/fetch.js";
-  import ProjectItem from "./ProjectItem";
-  import { filter, orderBy } from "lodash";
-  export default {
-    name: "Projects",
-    components: {
-      Common,
-      ProjectItem
+import Common from "@theme/components/Common.vue";
+import { httpGet } from "./utils/fetch.js";
+import ProjectItem from "./ProjectItem";
+import { filter, orderBy } from "lodash";
+export default {
+  name: "Projects",
+  components: {
+    Common,
+    ProjectItem,
+  },
+  data() {
+    return {
+      projects: [],
+      loading: true,
+    };
+  },
+  mounted() {
+    this.getProjects();
+  },
+  methods: {
+    getProjects() {
+      this.loading = true;
+      httpGet("https://api.github.com/users/sanm-zh/repos").then((res) => {
+        this.loading = false;
+        // 过滤掉私有的项目, 过滤掉 fork 项目
+        const projects = filter(res, (item) => !item.private && !item.fork);
+        this.projects = orderBy(
+          projects,
+          ["stargazers_count", "forks_count", "name", "created_at"],
+          ["desc", "desc", "asc", "desc"]
+        );
+      });
     },
-    data() {
-      return {
-        projects: [],
-        loading: true
-      };
-    },
-    mounted() {
-      this.getProjects();
-    },
-    methods: {
-      getProjects() {
-        this.loading = true;
-        httpGet("https://api.github.com/users/vxhly/repos").then(res => {
-          this.loading = false;
-          // 过滤掉私有的项目, 过滤掉 fork 项目
-          const projects = filter(res, item => !item.private && !item.fork);
-          this.projects = orderBy(
-            projects,
-            ["stargazers_count", "forks_count", "name", "created_at"],
-            ["desc", "desc", "asc", "desc"]
-          );
-        });
-      }
-    }
-  };
+  },
+};
 </script>
 
 <style lang="css" scope>
-  .project {
-    max-width: 1024px;
-    min-height: 300px;
-    margin: 4rem auto;
-    margin-top: 6rem;
-  }
-  .project-title,
-  .project-subtitle {
-    text-align: center;
-  }
-  .project-loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .project-loading img {
-    position: relative;
-  }
-  .project-loading span {
-    position: absolute;
-  }
-  .project-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
+.project {
+  max-width: 1024px;
+  min-height: 300px;
+  margin: 4rem auto;
+  margin-top: 6rem;
+}
+.project-title,
+.project-subtitle {
+  text-align: center;
+}
+.project-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project-loading img {
+  position: relative;
+}
+.project-loading span {
+  position: absolute;
+}
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 </style>
