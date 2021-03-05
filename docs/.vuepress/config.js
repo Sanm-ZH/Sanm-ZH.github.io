@@ -1,7 +1,7 @@
 module.exports = {
   title: "if(){}else{}",
   description: "Lok'tar Ogar!",
-  dest: '/docs/dist',
+  dest: 'docs/dist',
   base: '/',
   locales: {
     '/': {
