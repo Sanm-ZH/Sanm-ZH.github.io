@@ -164,13 +164,7 @@ module.exports = {
     ],
     ['cursor-effects'],
     ['sitemap', {
-      'hostname': () => {
-        let url = 'sanm-zh.github.io'
-        if (window.location.href.includes('gitee')) {
-          url = 'sanm-zh.gitee.io'
-        }
-        return url
-      },
+      'hostname': 'sanm-zh.gitee.io',
       'exclude': ['/404.html'],
       'dateFormatter': val => {
         return new Date().toISOString()
@@ -180,10 +174,7 @@ module.exports = {
       '@vuepress/last-updated',
       {
         transformer: timestamp => {
-          const dayjs = require('dayjs')
-          const relativeTime = require('dayjs/plugin/relativeTime')
-          dayjs.extend(relativeTime)
-          return dayjs(timestamp).fromNow()
+          return new Date(timestamp).toISOString()
         }
       }
     ]
