@@ -1,6 +1,10 @@
+dependencies:
+  vue-class-component: 7.2.6
 devDependencies:
   vuepress: 1.7.1
-  vuepress-theme-reco: 1.6.1_vuepress@1.7.1
+  vuepress-plugin-boxx: 0.0.7
+  vuepress-plugin-dynamic-title: 1.0.0
+  vuepress-theme-reco: 1.6.1_491056cf79219a60a6f46416a531d40d
 lockfileVersion: 5.2
 packages:
   /@babel/code-frame/7.12.13:
@@ -1447,13 +1451,15 @@ packages:
     resolution:
       integrity: sha1-UXRjL92oiPTwS7qlJjzwHjS6P8I=
       tarball: '@vue/composition-api/download/@vue/composition-api-1.0.0-rc.3.tgz'
-  /@vuepress-reco/core/1.6.2:
+  /@vuepress-reco/core/1.6.2_vue-class-component@7.2.6:
     dependencies:
       '@vue/composition-api': 1.0.0-rc.3_vue@2.6.12
       vue: 2.6.12
       vue-demi: 0.5.4_vue@2.6.12
-      vue-property-decorator: 9.1.2_vue@2.6.12
+      vue-property-decorator: 9.1.2_2dc4252c5371093c9ebcca71536ac4e9
     dev: true
+    peerDependencies:
+      vue-class-component: '*'
     resolution:
       integrity: sha1-ttzS96S3G1fwaFf+GDr2/wZjyLE=
       tarball: '@vuepress-reco/core/download/@vuepress-reco/core-1.6.2.tgz'
@@ -9616,6 +9622,13 @@ packages:
     resolution:
       integrity: sha1-2Lb8Pd1plawYSP98mcKB4HnaMOQ=
       tarball: vssue/download/vssue-1.4.7.tgz
+  /vue-class-component/7.2.6:
+    dev: false
+    peerDependencies:
+      vue: ^2.0.0
+    resolution:
+      integrity: sha1-hHHgN7jkdi9aRkaG4Z5a/HCFAuQ=
+      tarball: vue-class-component/download/vue-class-component-7.2.6.tgz
   /vue-class-component/7.2.6_vue@2.6.12:
     dependencies:
       vue: 2.6.12
@@ -9682,9 +9695,10 @@ packages:
     resolution:
       integrity: sha1-VxqRz40rUH9TfXm/gnWvMYRXL/8=
       tarball: vue-property-decorator/download/vue-property-decorator-8.5.1.tgz
-  /vue-property-decorator/9.1.2_vue@2.6.12:
+  /vue-property-decorator/9.1.2_2dc4252c5371093c9ebcca71536ac4e9:
     dependencies:
       vue: 2.6.12
+      vue-class-component: 7.2.6
     dev: true
     peerDependencies:
       vue: '*'
@@ -9760,6 +9774,11 @@ packages:
     resolution:
       integrity: sha1-IZvicq1RD6qHUNLU5w/QKL/RwW4=
       tarball: vuepress-html-webpack-plugin/download/vuepress-html-webpack-plugin-3.2.0.tgz
+  /vuepress-plugin-boxx/0.0.7:
+    dev: true
+    resolution:
+      integrity: sha1-gzfSfq9bP2Cet779s2gc5fDqwXw=
+      tarball: vuepress-plugin-boxx/download/vuepress-plugin-boxx-0.0.7.tgz
   /vuepress-plugin-container/2.1.5:
     dependencies:
       '@vuepress/shared-utils': 1.7.1
@@ -9775,6 +9794,11 @@ packages:
     resolution:
       integrity: sha1-ClveQk+B4Bhe2jb7oj16xMrm/wc=
       tarball: vuepress-plugin-disqus/download/vuepress-plugin-disqus-0.2.0.tgz
+  /vuepress-plugin-dynamic-title/1.0.0:
+    dev: true
+    resolution:
+      integrity: sha1-hn56i4Ia01zPqq/CNYvBKYF9Qi8=
+      tarball: vuepress-plugin-dynamic-title/download/vuepress-plugin-dynamic-title-1.0.0.tgz
   /vuepress-plugin-feed/0.1.9_vuepress@1.7.1:
     dependencies:
       feed: 2.0.4
@@ -9827,10 +9851,10 @@ packages:
     resolution:
       integrity: sha1-bF0B22De89e5drU0BOVrl9qejzk=
       tarball: vuepress-plugin-smooth-scroll/download/vuepress-plugin-smooth-scroll-0.0.9.tgz
-  /vuepress-theme-reco/1.6.1_vuepress@1.7.1:
+  /vuepress-theme-reco/1.6.1_491056cf79219a60a6f46416a531d40d:
     dependencies:
       '@vue/composition-api': 1.0.0-rc.3
-      '@vuepress-reco/core': 1.6.2
+      '@vuepress-reco/core': 1.6.2_vue-class-component@7.2.6
       '@vuepress-reco/vuepress-plugin-back-to-top': 1.6.0
       '@vuepress-reco/vuepress-plugin-comments': 1.6.0
       '@vuepress-reco/vuepress-plugin-loading-page': 1.6.0
@@ -9843,6 +9867,7 @@ packages:
       vuepress-plugin-smooth-scroll: 0.0.9
     dev: true
     peerDependencies:
+      vue-class-component: '*'
       vuepress: '*'
     resolution:
       integrity: sha1-d7eN9682wn67vPzquRbWyxiqLiU=
@@ -10284,5 +10309,8 @@ packages:
       integrity: sha1-4Se9nmb9hGvl6rSME5SIL3wOT5g=
       tarball: zepto/download/zepto-1.2.0.tgz
 specifiers:
+  vue-class-component: ^7.2.6
   vuepress: 1.7.1
+  vuepress-plugin-boxx: ^0.0.7
+  vuepress-plugin-dynamic-title: ^1.0.0
   vuepress-theme-reco: 1.6.1

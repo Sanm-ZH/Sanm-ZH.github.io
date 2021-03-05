@@ -1,14 +1,19 @@
 {
-  "name": "",
+  "name": "sanm-zh.github.io",
   "version": "1.0.0",
-  "author": "reco_luan",
+  "author": "sanmzh <zhxpvip7@gmail.com>",
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
   },
   "devDependencies": {
     "vuepress": "1.7.1",
+    "vuepress-plugin-boxx": "^0.0.7",
+    "vuepress-plugin-dynamic-title": "^1.0.0",
     "vuepress-theme-reco": "1.6.1"
   },
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "vue-class-component": "^7.2.6"
+  }
 }
