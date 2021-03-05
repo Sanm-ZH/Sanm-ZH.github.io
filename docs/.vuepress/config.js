@@ -51,7 +51,8 @@ module.exports = {
         text: '更多',
         icon: 'reco-message',
         items: [
-          { text: 'GitHub', link: 'https://github.com/recoluan', icon: 'reco-github' }
+          { text: 'GitHub', link: 'https://github.com/sanm-zh', icon: 'reco-github' },
+          { text: 'Gitee', link: 'https://gitee.com/sanm-zh', icon: 'reco-mayun' }
         ]
       }
     ],

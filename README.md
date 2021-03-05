@@ -1,2 +1,2 @@
-# sanm-zh.github.io
+### sanmzh's blog
 > Lok'tar Ogar!!!
