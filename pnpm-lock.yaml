@@ -1,6 +1,7 @@
 dependencies:
   vue-class-component: 7.2.6
 devDependencies:
+  gh-pages: 3.1.0
   vuepress: 1.7.1
   vuepress-plugin-boxx: 0.0.7
   vuepress-plugin-dynamic-title: 1.0.0
@@ -3847,6 +3848,11 @@ packages:
     resolution:
       integrity: sha1-2jfOvTHnmhNn6UG1ku0fvr1Yq7s=
       tarball: elliptic/download/elliptic-6.5.4.tgz
+  /email-addresses/3.1.0:
+    dev: true
+    resolution:
+      integrity: sha1-yr9+CFy9tjAIpwMZp05hNhiIEvs=
+      tarball: email-addresses/download/email-addresses-3.1.0.tgz
   /emoji-regex/7.0.3:
     dev: true
     resolution:
@@ -4320,6 +4326,34 @@ packages:
     resolution:
       integrity: sha1-VTp7hEb/b2hDWcRF8eN6BdrMM90=
       tarball: file-uri-to-path/download/file-uri-to-path-1.0.0.tgz
+  /filename-reserved-regex/1.0.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-5hz4BfDeHJhFZ9A4bcXfUO5a9+Q=
+      tarball: filename-reserved-regex/download/filename-reserved-regex-1.0.0.tgz
+  /filenamify-url/1.0.0:
+    dependencies:
+      filenamify: 1.2.1
+      humanize-url: 1.0.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-syvYExnvWGO3MHi+1Q9GpPeXX1A=
+      tarball: filenamify-url/download/filenamify-url-1.0.0.tgz
+  /filenamify/1.2.1:
+    dependencies:
+      filename-reserved-regex: 1.0.0
+      strip-outer: 1.0.1
+      trim-repeated: 1.0.0
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-qfL/0RxQO+0wABUCknI3jx8TZaU=
+      tarball: filenamify/download/filenamify-1.2.1.tgz
   /fill-range/4.0.0:
     dependencies:
       extend-shallow: 2.0.1
@@ -4517,6 +4551,17 @@ packages:
     resolution:
       integrity: sha1-TxicRKoSO4lfcigE9V6iPq3DSOk=
       tarball: fs-extra/download/fs-extra-7.0.1.tgz
+  /fs-extra/8.1.0:
+    dependencies:
+      graceful-fs: 4.2.6
+      jsonfile: 4.0.0
+      universalify: 0.1.2
+    dev: true
+    engines:
+      node: '>=6 <7 || >=8'
+    resolution:
+      integrity: sha1-SdQ8RaiM2Wd2aMt74bRu/bjS4cA=
+      tarball: fs-extra/download/fs-extra-8.1.0.tgz
   /fs-write-stream-atomic/1.0.10:
     dependencies:
       graceful-fs: 4.2.6
@@ -4613,6 +4658,22 @@ packages:
     resolution:
       integrity: sha1-Xv+OPmhNVprkyysSgmBOi6YhSfo=
       tarball: getpass/download/getpass-0.1.7.tgz
+  /gh-pages/3.1.0:
+    dependencies:
+      async: 2.6.3
+      commander: 2.20.3
+      email-addresses: 3.1.0
+      filenamify-url: 1.0.0
+      find-cache-dir: 3.3.1
+      fs-extra: 8.1.0
+      globby: 6.1.0
+    dev: true
+    engines:
+      node: '>=10'
+    hasBin: true
+    resolution:
+      integrity: sha1-7D7Q9qbj/D2Ih1j6AY8IGRyWvVU=
+      tarball: gh-pages/download/gh-pages-3.1.0.tgz
   /github-markdown-css/3.0.1:
     dev: true
     engines:
@@ -5097,6 +5158,16 @@ packages:
     resolution:
       integrity: sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
       tarball: https-browserify/download/https-browserify-1.0.0.tgz
+  /humanize-url/1.0.1:
+    dependencies:
+      normalize-url: 1.9.1
+      strip-url-auth: 1.0.1
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-9KuZ4NKIF0yk4eUEB8VfuuRk7/8=
+      tarball: humanize-url/download/humanize-url-1.0.1.tgz
   /iconv-lite/0.4.24:
     dependencies:
       safer-buffer: 2.1.2
@@ -6692,6 +6763,18 @@ packages:
     resolution:
       integrity: sha1-LRDAa9/TEuqXd2laTShDlFa3WUI=
       tarball: normalize-range/download/normalize-range-0.1.2.tgz
+  /normalize-url/1.9.1:
+    dependencies:
+      object-assign: 4.1.1
+      prepend-http: 1.0.4
+      query-string: 4.3.4
+      sort-keys: 1.1.2
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-LMDWazHqIwNkWENuNiDYWVTGbDw=
+      tarball: normalize-url/download/normalize-url-1.9.1.tgz?cache=0&sync_timestamp=1602432981308&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnormalize-url%2Fdownload%2Fnormalize-url-1.9.1.tgz
   /normalize-url/2.0.1:
     dependencies:
       prepend-http: 2.0.0
@@ -7633,6 +7716,13 @@ packages:
     resolution:
       integrity: sha1-0r4AuZj38hHYonaXQHny6SuXDiQ=
       tarball: postcss/download/postcss-7.0.35.tgz
+  /prepend-http/1.0.4:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
+      tarball: prepend-http/download/prepend-http-1.0.4.tgz
   /prepend-http/2.0.0:
     dev: true
     engines:
@@ -7823,6 +7913,16 @@ packages:
     resolution:
       integrity: sha1-Ju08gkOkMbKSSsqEzJBHHzXVoO4=
       tarball: qs/download/qs-6.9.6.tgz
+  /query-string/4.3.4:
+    dependencies:
+      object-assign: 4.1.1
+      strict-uri-encode: 1.1.0
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-u7aTucqRXCMlFbIosaArYJBD2+s=
+      tarball: query-string/download/query-string-4.3.4.tgz?cache=0&sync_timestamp=1614391560079&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fquery-string%2Fdownload%2Fquery-string-4.3.4.tgz
   /query-string/5.1.1:
     dependencies:
       decode-uri-component: 0.2.0
@@ -8559,6 +8659,15 @@ packages:
     resolution:
       integrity: sha1-s0/7mOeWkwtgoM+hGQTWozmn1Bc=
       tarball: sockjs/download/sockjs-0.3.21.tgz
+  /sort-keys/1.1.2:
+    dependencies:
+      is-plain-obj: 1.1.0
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-RBttTTRnmPG05J6JIK37oOVD+a0=
+      tarball: sort-keys/download/sort-keys-1.1.2.tgz
   /sort-keys/2.0.0:
     dependencies:
       is-plain-obj: 1.1.0
@@ -8896,6 +9005,22 @@ packages:
     resolution:
       integrity: sha1-PFMZQukIwml8DsNEhYwobHygpgo=
       tarball: strip-json-comments/download/strip-json-comments-2.0.1.tgz
+  /strip-outer/1.0.1:
+    dependencies:
+      escape-string-regexp: 1.0.5
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-sv0qv2YEudHmATBXGV34Nrip1jE=
+      tarball: strip-outer/download/strip-outer-1.0.1.tgz
+  /strip-url-auth/1.0.1:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-IrD6OkE4WzO+PzMVUbu4N/oM164=
+      tarball: strip-url-auth/download/strip-url-auth-1.0.1.tgz
   /striptags/3.1.1:
     dev: true
     resolution:
@@ -9225,6 +9350,15 @@ packages:
     resolution:
       integrity: sha1-qLE/1r/SSJUZZ0zN5VujaTtwbQk=
       tarball: tr46/download/tr46-1.0.1.tgz
+  /trim-repeated/1.0.0:
+    dependencies:
+      escape-string-regexp: 1.0.5
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-42RqLqTokTEr9+rObPsFOAvAHCE=
+      tarball: trim-repeated/download/trim-repeated-1.0.0.tgz
   /tslib/1.14.1:
     dev: true
     resolution:
@@ -10309,6 +10443,7 @@ packages:
       integrity: sha1-4Se9nmb9hGvl6rSME5SIL3wOT5g=
       tarball: zepto/download/zepto-1.2.0.tgz
 specifiers:
+  gh-pages: ^3.1.0
   vue-class-component: ^7.2.6
   vuepress: 1.7.1
   vuepress-plugin-boxx: ^0.0.7
