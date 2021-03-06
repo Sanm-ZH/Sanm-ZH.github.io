@@ -19,3 +19,22 @@ bgImageStyle: {
   overflow: hidden
 }
 ---
+
+<script>
+export default {
+  props: ['slot-key'],
+  mounted () {
+    const anchorNode = document.createElement('a')
+    anchorNode.id = 'homeBlog'
+    const jumpNode = document.createElement('a')
+    jumpNode.href = '#homeBlog'
+    jumpNode.className = 'home-more'
+
+    const pDom = document.querySelector(`.home-blog`)
+    const refDom = document.querySelector(`.home-blog-wrapper`)
+    pDom.insertBefore(anchorNode ,refDom)
+    document.querySelector(`.hero`)
+      .appendChild(jumpNode)
+  }
+}
+</script>

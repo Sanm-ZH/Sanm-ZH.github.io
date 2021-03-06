@@ -67,3 +67,44 @@ div[class~="language-bat"]:before{
 .footer-wrapper > span:first-child{
   display: none;
 }
+
+.comments-wrapper {
+  max-width: 860px !important
+}
+
+.home-more:link, .home-blog .home-more:visited {
+  text-decoration: none;
+}
+
+.home-blog .home-more {
+  width: 0;
+  height: 0;
+  margin: 12rem auto 0;
+  display: block;
+  position: absolute;
+  -webkit-animation: float-in 3s 1s infinite;
+  animation: float-in 3s 1s infinite;
+}
+
+
+
+.home-blog .home-more:after {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 50%;
+  top: 20vh;
+  content: "";
+  display: block;
+  border-right: 3px solid #fff;
+  border-top: 3px solid #fff;
+  transform: translateX(-50%) rotate(135deg);
+}
+
+@keyframes float-in{
+  0%{transform:translateY(0)}
+  20%{transform:translateY(0)}
+  50%{transform:translateY(-30px)}
+  75%{transform:translateY(0)}
+  to{transform:translateY(0)}
+}
