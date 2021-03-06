@@ -8,6 +8,7 @@
     "deploy": "bash deploy.sh"
   },
   "devDependencies": {
+    "@vuepress/plugin-nprogress": "^1.8.2",
     "dayjs": "^1.10.4",
     "gh-pages": "^3.1.0",
     "vuepress": "1.7.1",

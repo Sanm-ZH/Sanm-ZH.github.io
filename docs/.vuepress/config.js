@@ -138,7 +138,7 @@ module.exports = {
       'messageStyle': {
         'position': 'fixed',
         'right': '75px',
-        'bottom': '180px',
+        'bottom': '200px',
         'opacity': '0.75',
         'height': 'max-content',
         'width': '200px',
@@ -150,8 +150,8 @@ module.exports = {
         'bottom': '0px',
         'opacity': '1'
       },
-      'width': 146,
-      'height': 200,
+      'width': 166,
+      'height': 220,
       'clean': true
     }],
     [
@@ -173,10 +173,11 @@ module.exports = {
     [
       '@vuepress/last-updated',
       {
-        transformer: timestamp => {
+        transformer: (timestamp, lang) => {
           return new Date(timestamp).toISOString()
         }
       }
-    ]
+    ],
+    ['@vuepress/nprogress']
   ]
 }
