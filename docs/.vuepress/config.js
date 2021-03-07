@@ -34,7 +34,6 @@ module.exports = {
     },
     nav: [
       { text: '主页', link: '/', icon: 'reco-home' },
-      { text: '时间轴', link: '/timeline/', icon: 'reco-date' },
       // {
       //   text: 'Docs',
       //   icon: 'reco-message',
@@ -43,14 +42,11 @@ module.exports = {
       //   ]
       // },
       {
-        'text': '项目',
-        'link': '/project/',
-        'icon': 'iconfont icon-project'
-      },
-      {
         text: '更多',
         icon: 'reco-message',
         items: [
+          { text: '时间轴', link: '/timeline/', icon: 'reco-date' },
+          { text: '项目', link: '/project/', icon: 'iconfont icon-project' },
           { text: 'GitHub', link: 'https://github.com/sanm-zh', icon: 'reco-github' },
           { text: 'Gitee', link: 'https://gitee.com/sanm-zh', icon: 'reco-mayun' }
         ]
@@ -69,12 +65,6 @@ module.exports = {
       }
     },
     friendLink: [
-      {
-        title: '午后南杂',
-        desc: 'Enjoy when you can, and endure when you must.',
-        email: '1156743527@qq.com',
-        link: 'https://www.recoluan.com'
-      },
       {
         title: 'vuepress-theme-reco',
         desc: 'A simple and beautiful vuepress Blog & Doc theme.',
