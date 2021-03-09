@@ -46,7 +46,8 @@ module.exports = {
         icon: 'reco-message',
         items: [
           { text: '时间轴', link: '/timeline/', icon: 'reco-date' },
-          { text: '项目', link: '/project/', icon: 'iconfont icon-project' },
+          { text: '开源项目', link: '/project/', icon: 'iconfont icon-project' },
+          { text: '个人简历', link: 'https://sanm-zh.gitee.io/resume', icon: 'reco-other' },
           { text: 'GitHub', link: 'https://github.com/sanm-zh', icon: 'reco-github' },
           { text: 'Gitee', link: 'https://gitee.com/sanm-zh', icon: 'reco-mayun' }
         ]
