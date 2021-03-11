@@ -47,10 +47,15 @@ module.exports = {
         items: [
           { text: '时间轴', link: '/timeline/', icon: 'reco-date' },
           { text: '开源项目', link: '/project/', icon: 'iconfont icon-project' },
-          { text: '个人简历', link: 'https://sanm-zh.gitee.io/resume', icon: 'reco-other' },
+          { text: '个人简历', link: 'https://sanm-zh.gitee.io/resume', icon: 'reco-account' },
           { text: 'GitHub', link: 'https://github.com/sanm-zh', icon: 'reco-github' },
           { text: 'Gitee', link: 'https://gitee.com/sanm-zh', icon: 'reco-mayun' }
         ]
+      },
+      {
+        text: '关于我',
+        icon: 'reco-other',
+        link: '/views/about/'
       }
     ],
     type: 'blog',
@@ -85,6 +90,7 @@ module.exports = {
     author: 'sanmzh',
     // 作者头像
     authorAvatar: '/lufei.jpg',
+    smoothScroll: true,
     // 备案号
     // record: 'xxxx',
     // 项目开始时间
