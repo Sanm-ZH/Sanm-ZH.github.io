@@ -167,14 +167,14 @@ module.exports = {
         return new Date().toISOString()
       }
     }],
-    [
-      '@vuepress/last-updated',
-      {
-        transformer: (timestamp, lang) => {
-          return new Date(timestamp).toISOString()
-        }
-      }
-    ],
+    // [
+    //   '@vuepress/last-updated',
+    //   {
+    //     transformer: (timestamp, lang) => {
+    //       return new Date(timestamp).toISOString()
+    //     }
+    //   }
+    // ],
     ['@vuepress/nprogress'],
     ['prismjs', {
       toolbar: true, //default false
