@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="about-head-img-cont"
+      class="hero"
       :style="{ ...bgImageStyle }"
     >
       <component
@@ -11,7 +11,7 @@
       ></component>
     </div>
     <ModuleTransition delay="0.08">
-      <Content class="about-content-cont" />
+      <Content class="" />
     </ModuleTransition>
   </div>
 </template>
@@ -21,17 +21,17 @@ import { ModuleTransition } from "@vuepress-reco/core/lib/components";
 
 export default {
   components: { ModuleTransition },
-  data () {
-      return {
-        bubbles: null,
-        options: {},
-      }
+  data() {
+    return {
+      bubbles: null,
+      options: {},
+    };
   },
-  mounted () {
+  mounted() {
     import("vue-canvas-effect/src/components/bubbles").then((module) => {
       this.bubbles = module.default;
-    })
-  }
+    });
+  },
   methods: {
     bgImageStyle() {
       const initBgImageStyle = {
@@ -54,30 +54,3 @@ export default {
   },
 };
 </script>
-
-<style lang="stylus">
-@require '../styles/wrapper.styl';
-
-.about-head-img-cont {
-  width: 100%;
-  font-size: 1.6rem;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-content-cont h2 {
-  position: relative;
-  padding-left: 0.8rem;
-
-  &::before {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    display: block;
-    height: 1.8rem;
-    content: '';
-    border-left: 5px solid $accentColor;
-  }
-}

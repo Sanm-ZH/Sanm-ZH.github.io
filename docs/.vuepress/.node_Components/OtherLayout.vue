@@ -1,9 +1,11 @@
 <template>
-  <Common
-    :sidebar="false"
-    :isComment="false"
-  >
-  </Common>
+  <div>
+    <Common
+      :sidebar="false"
+      :isComment="false"
+    >
+    </Common>
+  </div>
 </template>
 
 <script>
