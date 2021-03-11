@@ -17,11 +17,13 @@
     "vuepress-plugin-boxx": "^0.0.7",
     "vuepress-plugin-cursor-effects": "^1.0.2",
     "vuepress-plugin-dynamic-title": "^1.0.0",
+    "vuepress-plugin-prismjs": "^0.0.1",
     "vuepress-plugin-sitemap": "^2.3.1",
     "vuepress-theme-reco": "1.6.1"
   },
   "description": "",
   "dependencies": {
+    "@vuepress/core": "^1.8.2",
     "vue-class-component": "^7.2.6"
   }
 }

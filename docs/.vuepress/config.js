@@ -33,7 +33,7 @@ module.exports = {
       }
     },
     nav: [
-      { text: '主页', link: '/', icon: 'reco-home' },
+      { text: '主页', link: '/', icon: 'iconfont reco-home' },
       // {
       //   text: 'Docs',
       //   icon: 'reco-message',
@@ -45,11 +45,11 @@ module.exports = {
         text: '更多',
         icon: 'reco-message',
         items: [
-          { text: '时间轴', link: '/timeline/', icon: 'reco-date' },
+          { text: '时间轴', link: '/timeline/', icon: 'iconfont reco-date' },
           { text: '开源项目', link: '/project/', icon: 'iconfont icon-project' },
-          { text: '个人简历', link: 'https://sanm-zh.gitee.io/resume', icon: 'reco-account' },
-          { text: 'GitHub', link: 'https://github.com/sanm-zh', icon: 'reco-github' },
-          { text: 'Gitee', link: 'https://gitee.com/sanm-zh', icon: 'reco-mayun' }
+          { text: '个人简历', link: 'https://sanm-zh.gitee.io/resume', icon: 'iconfont reco-account' },
+          { text: 'GitHub', link: 'https://github.com/sanm-zh', icon: 'iconfont reco-github' },
+          { text: 'Gitee', link: 'https://gitee.com/sanm-zh', icon: 'iconfont reco-mayun' }
         ]
       },
       {
@@ -175,6 +175,11 @@ module.exports = {
         }
       }
     ],
-    ['@vuepress/nprogress']
+    ['@vuepress/nprogress'],
+    ['prismjs', {
+      toolbar: true, //default false
+      keyboard: true, //default false
+      previewer: true, //default false
+    }]
   ]
 }
