@@ -74,13 +74,6 @@ a {
   color: #37aabb;
   text-decoration: none;
 }
-a > i,
-.title > i {
-  font-size: 13px !important;
-}
-.color-button > i {
-  font-size: 22.4px;
-}
 .navbar {
   position: fixed;
   z-index: 20;
