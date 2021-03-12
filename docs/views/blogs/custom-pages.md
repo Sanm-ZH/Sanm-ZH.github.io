@@ -131,4 +131,4 @@ export default {
 - `<Content />`组件会自动将md文件的内容渲染在自身容器下
 - 通过`Front Matter`关键字可以很方便的传递一些信息，如：`bgImage`&`bgImageStyle`等
 
-> 具体效果可以请参考我的博客 [关于我](https://sanm-zh.gitee.io/about)页面
+> 具体效果可以请参考我的博客 [关于我](https://sanm-zh.gitee.io/views/about/)页面
