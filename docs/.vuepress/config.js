@@ -46,7 +46,7 @@ module.exports = {
         icon: 'reco-message',
         items: [
           { text: '时间轴', link: '/timeline/', icon: 'iconfont reco-date' },
-          { text: '开源项目', link: '/project/', icon: 'iconfont icon-project' },
+          { text: '开源项目', link: '/views/project/', icon: 'iconfont icon-project' },
           { text: '个人简历', link: 'https://sanm-zh.gitee.io/resume', icon: 'iconfont reco-account' },
           { text: 'GitHub', link: 'https://github.com/sanm-zh', icon: 'iconfont reco-github' },
           { text: 'Gitee', link: 'https://gitee.com/sanm-zh', icon: 'iconfont reco-mayun' }
@@ -112,7 +112,7 @@ module.exports = {
     valineConfig: {
       appId: 'iJWgM9MSaD5hqEfcRApgG6cg-MdYXbMMI',// your appId
       appKey: 'PmhdeuGvd8gEgXxtKubi8SKd', // your appKey
-      placeholder: '文明发言, 您的支持将是我继续下去的动力...',
+      placeholder: '您的互动将是我继续下去的动力...',
       notify: true,
       verify: true,
       visitor: true
