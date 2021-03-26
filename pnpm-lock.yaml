@@ -8,6 +8,7 @@ devDependencies:
   vue-canvas-effect: 0.0.12
   vuepress: 1.7.1
   vuepress-plugin-boxx: 0.0.7
+  vuepress-plugin-click-copy-markdown: 1.2.0
   vuepress-plugin-cursor-effects: 1.0.2
   vuepress-plugin-dynamic-title: 1.0.0
   vuepress-plugin-prismjs: 0.0.1
@@ -1342,6 +1343,11 @@ packages:
     dev: true
     peerDependencies:
       vue: ^2 || ^3.0.0-0
+    peerDependenciesMeta:
+      core-js:
+        optional: true
+      vue:
+        optional: true
     resolution:
       integrity: sha1-9ne8EEcuQY9x9h8Q3eWnmXaiFbg=
       tarball: '@vue/babel-preset-app/download/@vue/babel-preset-app-4.5.11.tgz'
@@ -1579,7 +1585,7 @@ packages:
       toml: 3.0.0
       url-loader: 1.1.2_webpack@4.46.0
       vue: 2.6.12
-      vue-loader: 15.9.6_css-loader@2.1.1+webpack@4.46.0
+      vue-loader: 15.9.6_cdfaccc535dd293eec52a3fbf989b5e0
       vue-router: 3.5.1
       vue-server-renderer: 2.6.12
       vue-template-compiler: 2.6.12
@@ -3646,6 +3652,25 @@ packages:
     dev: true
     engines:
       node: '>=6.0'
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    resolution:
+      integrity: sha1-8NIpxQXgxtjEmsVT0bE9wYP2su4=
+      tarball: debug/download/debug-4.3.1.tgz
+  /debug/4.3.1_supports-color@6.1.0:
+    dependencies:
+      supports-color: 6.1.0
+    dev: true
+    engines:
+      node: '>=6.0'
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
     resolution:
       integrity: sha1-8NIpxQXgxtjEmsVT0bE9wYP2su4=
       tarball: debug/download/debug-4.3.1.tgz
@@ -9931,6 +9956,31 @@ packages:
     resolution:
       integrity: sha1-w1gr1huzqXjwDHXhrIUO/ImzkW8=
       tarball: vue-i18n/download/vue-i18n-8.24.1.tgz
+  /vue-loader/15.9.6_cdfaccc535dd293eec52a3fbf989b5e0:
+    dependencies:
+      '@vue/component-compiler-utils': 3.2.0
+      cache-loader: 3.0.1_webpack@4.46.0
+      css-loader: 2.1.1_webpack@4.46.0
+      hash-sum: 1.0.2
+      loader-utils: 1.4.0
+      vue-hot-reload-api: 2.3.4
+      vue-style-loader: 4.1.3
+      vue-template-compiler: 2.6.12
+      webpack: 4.46.0
+    dev: true
+    peerDependencies:
+      cache-loader: '*'
+      css-loader: '*'
+      vue-template-compiler: '*'
+      webpack: ^3.0.0 || ^4.1.0 || ^5.0.0-0
+    peerDependenciesMeta:
+      cache-loader:
+        optional: true
+      vue-template-compiler:
+        optional: true
+    resolution:
+      integrity: sha1-9Lua4gw6g3CvPs8JuBJtOP/ba4s=
+      tarball: vue-loader/download/vue-loader-15.9.6.tgz?cache=0&sync_timestamp=1608188481308&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-loader%2Fdownload%2Fvue-loader-15.9.6.tgz
   /vue-loader/15.9.6_css-loader@2.1.1+webpack@4.46.0:
     dependencies:
       '@vue/component-compiler-utils': 3.2.0
@@ -10041,6 +10091,11 @@ packages:
     resolution:
       integrity: sha1-gzfSfq9bP2Cet779s2gc5fDqwXw=
       tarball: vuepress-plugin-boxx/download/vuepress-plugin-boxx-0.0.7.tgz
+  /vuepress-plugin-click-copy-markdown/1.2.0:
+    dev: true
+    resolution:
+      integrity: sha1-G55xqpj2ldaVYqra+igjnDTyx3Q=
+      tarball: https://registry.npm.taobao.org/vuepress-plugin-click-copy-markdown/download/vuepress-plugin-click-copy-markdown-1.2.0.tgz
   /vuepress-plugin-container/2.1.5:
     dependencies:
       '@vuepress/shared-utils': 1.8.2
@@ -10234,7 +10289,7 @@ packages:
       chokidar: 2.1.8
       compression: 1.7.4
       connect-history-api-fallback: 1.6.0
-      debug: 4.3.1
+      debug: 4.3.1_supports-color@6.1.0
       del: 4.1.1
       express: 4.17.1
       html-entities: 1.4.0
@@ -10269,6 +10324,10 @@ packages:
     hasBin: true
     peerDependencies:
       webpack: ^4.0.0 || ^5.0.0
+      webpack-cli: '*'
+    peerDependenciesMeta:
+      webpack-cli:
+        optional: true
     resolution:
       integrity: sha1-aV687Xakkp8NXef9c/r+GF/jNwg=
       tarball: webpack-dev-server/download/webpack-dev-server-3.11.2.tgz
@@ -10326,6 +10385,14 @@ packages:
     engines:
       node: '>=6.11.5'
     hasBin: true
+    peerDependencies:
+      webpack-cli: '*'
+      webpack-command: '*'
+    peerDependenciesMeta:
+      webpack-cli:
+        optional: true
+      webpack-command:
+        optional: true
     resolution:
       integrity: sha1-v5tEBOogoHNgXgoBHRiNd8tq1UI=
       tarball: webpack/download/webpack-4.46.0.tgz
@@ -10591,6 +10658,7 @@ specifiers:
   vue-class-component: ^7.2.6
   vuepress: 1.7.1
   vuepress-plugin-boxx: ^0.0.7
+  vuepress-plugin-click-copy-markdown: ^1.2.0
   vuepress-plugin-cursor-effects: ^1.0.2
   vuepress-plugin-dynamic-title: ^1.0.0
   vuepress-plugin-prismjs: ^0.0.1

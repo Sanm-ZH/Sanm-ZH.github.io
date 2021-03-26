@@ -2,3 +2,4 @@ node_modules/
 yarn.lock
 yarn.error
 docs/dist
+docs/.vuepress/plugin/copy-test
