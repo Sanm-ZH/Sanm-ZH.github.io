@@ -13,7 +13,6 @@ date: 2021-03-27 01:18:08
 ## 修改
 ```js
 // node_modules/vuepress-theme-reco/components/Page.vue
-...
 lastUpdated () {
     const dayjs = require('dayjs')
     require('dayjs/locale/zh-cn')
@@ -22,5 +21,4 @@ lastUpdated () {
     return dayjs(this.$page.lastUpdated).locale('zh-cn').fromNow()
     // return new Date(this.$page.lastUpdated).toLocaleString()
 }
-...
 ```
