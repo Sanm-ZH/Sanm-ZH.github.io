@@ -9,7 +9,8 @@ module.exports = {
     }
   },
   head: [
-    ['link', { rel: 'icon', href: '/lufei.ico' }],
+    ['link', { rel: 'shortcut icon', href: '/lufei.ico', type: 'image/x-icon' }],
+    ['link', { rel: 'bookmark', href: '/lufei.ico', type: 'image/x-icon' }],
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }]
   ],
   theme: 'reco',
