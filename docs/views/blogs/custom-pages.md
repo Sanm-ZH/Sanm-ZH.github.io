@@ -2,7 +2,7 @@
 author: sanmzh
 title: Markdown布局样式自定义
 categories: [blogs]
-tags: [博客自定义, VueJS, VuePress]
+tags: [blog-style, VueJS, VuePress]
 date: 2021-03-12 15:12:16
 ---
 
