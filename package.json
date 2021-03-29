@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@vuepress/plugin-nprogress": "^1.8.2",
+    "@vuepress/plugin-pwa": "^1.8.2",
     "dayjs": "^1.10.4",
     "gh-pages": "^3.1.0",
     "vue-canvas-effect": "^0.0.12",
@@ -18,9 +19,10 @@
     "vuepress-plugin-click-copy-markdown": "^1.2.2",
     "vuepress-plugin-cursor-effects": "^1.0.2",
     "vuepress-plugin-dynamic-title": "^1.0.0",
-    "vuepress-plugin-prismjs": "^0.0.1",
-    "vuepress-plugin-sitemap": "^2.3.1",
     "vuepress-theme-reco": "1.6.1"
   },
-  "description": "A personal blog"
+  "description": "A personal blog",
+  "dependencies": {
+    "vue-class-component": "^7.2.6"
+  }
 }
