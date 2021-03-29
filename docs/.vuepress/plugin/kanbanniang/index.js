@@ -54,11 +54,11 @@ module.exports = (options, context) => ({
         },
         'mouseover': [
           {
-            'selector': 'abstract-item',
+            'selector': '.abstract-wrapper .abstract-item',
             'text': ['想阅读一下这篇文章吗？']
           },
           {
-            'selector': '.page a[href^=\'http\']',
+            'selector': '.page a[href^="http"]',
             'text': ['要看看 <span style=\'color:#22979b;\'>{text}</span> 么？']
           },
           {
@@ -70,14 +70,18 @@ module.exports = (options, context) => ({
             'text': ['回到开始的地方吧']
           },
           {
-            'selector': 'pre .code-copy',
-            'text': ['点击这里可以一键复制代码哟']
+            'selector': 'pre .code-copy-btn',
+            'text': ['点击这里可以一键复制代码哟！']
+          },
+          {
+            'selector': '.valine-wrapper',
+            'text': ['人过留名，雁过留声！']
           }
         ],
         'click': [
           {
-            'selector': 'p code',
-            'text': ['这里可以被复制哦']
+            'selector': 'pre code',
+            'text': ['这里可以被复制哦！']
           }
         ],
       },

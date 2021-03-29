@@ -107,10 +107,7 @@
             ></path>
           </svg>
         </i>
-        <a
-          target="_blank"
-          href="https://github.com/vxhly"
-        >
+        <a target="_blank" href="https://github.com/sanm-zh">
           <i
             @mouseenter="hoverMoreAbout"
             @mouseleave="resetMessage"
