@@ -1,6 +1,6 @@
 ---
 author: sanmzh
-title: 链接下载文件
+title: gpg 常用命令
 categories: [other]
 tags: [gpg,git,shell]
 date: 2021-03-29 14:37:44
