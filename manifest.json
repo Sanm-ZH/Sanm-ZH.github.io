@@ -1,10 +1,10 @@
 {
-  "name": "Coding and Fixing",
-  "short_name": "Coding and Fixing",
+  "name": "if(){}else{} Blog",
+  "short_name": "if(){}else{} Blog",
   "start_url": "./index.html",
   "display": "fullscreen",
   "background_color": "#000000",
-  "theme_color": "#22979b",
+  "theme_color": "#37aabb",
   "icons": [
     {
       "src": "./icons/android-chrome-192x192.png",
