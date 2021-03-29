@@ -11,7 +11,41 @@ module.exports = {
   head: [
     ['link', { rel: 'shortcut icon', href: '/lufei.ico', type: 'image/x-icon' }],
     ['link', { rel: 'bookmark', href: '/lufei.ico', type: 'image/x-icon' }],
-    ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }]
+    ['link', { rel: 'manifest', href: '/manifest.json' }],
+    ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
+    ['meta', {
+      'name': 'theme-color',
+      'content': '#37aabb'
+    }],
+    ['meta', {
+      'name': 'apple-mobile-web-app-capable',
+      'content': 'yes'
+    }],
+    ['meta', {
+      'name': 'apple-mobile-web-app-status-bar-style',
+      'content': '#37aabb'
+    }],
+    ['link', {
+      'rel': 'apple-touch-icon',
+      'href': '/icons/apple-touch-icon-152x152.png'
+    }],
+    ['link', {
+      'rel': 'mask-icon',
+      'href': '/icons/safari-pinned-tab.svg',
+      'color': '#2c2c2c'
+    }],
+    ['meta', {
+      'name': 'msapplication-TileImage',
+      'content': '/icons/msapplication-icon-144x144.png'
+    }],
+    ['meta', {
+      'name': 'msapplication-TileColor',
+      'content': '#000000'
+    }],
+    ['meta', {
+      'name': 'viewport',
+      'content': 'width=device-width,initial-scale=1,user-scalable=no'
+    }]
   ],
   theme: 'reco',
   themeConfig: {
@@ -161,13 +195,13 @@ module.exports = {
       }
     ],
     ['cursor-effects'],
-    ['sitemap', {
-      'hostname': 'https://sanm-zh.gitee.io',
-      'exclude': ['/404.html'],
-      'dateFormatter': val => {
-        return new Date().toISOString()
-      }
-    }],
+    // ['sitemap', {
+    //   'hostname': 'https://sanm-zh.gitee.io',
+    //   'exclude': ['/404.html'],
+    //   'dateFormatter': val => {
+    //     return new Date().toISOString()
+    //   }
+    // }],
     // [
     //   '@vuepress/last-updated',
     //   {
@@ -177,15 +211,17 @@ module.exports = {
     //   }
     // ],
     ['@vuepress/nprogress'],
-    ['prismjs', {
-      toolbar: true, //default false
-      keyboard: true, //default false
-      previewer: true, //default false
-    }],
     ['vuepress-plugin-click-copy-markdown', {
       title: '复制',
       tips: '点击复制',
       showIcon: true
+    }],
+    ['@vuepress/pwa', {
+      'serviceWorker': true,
+      'updatePopup': {
+        'message': '发现新内容可用',
+        'buttonText': '刷新'
+      }
     }]
   ]
 }

@@ -59,7 +59,7 @@ module.exports = (options, context) => ({
           },
           {
             'selector': '.page a[href^="http"]',
-            'text': ['要看看 <span style=\'color:#22979b;\'>{text}</span> 么？']
+            'text': ['要看看 <span style=\'color:#37aabb;\'>{text}</span> 么？']
           },
           {
             'selector': '.global-ui .reward',
