@@ -30,11 +30,12 @@ export default {
     jumpNode.href = '#homeBlog'
     jumpNode.className = 'home-more'
 
-    const pDom = document.querySelector(`.home-blog`)
-    const refDom = document.querySelector(`.home-blog-wrapper`)
-    pDom.insertBefore(anchorNode ,refDom)
-    document.querySelector(`.hero`)
-      .appendChild(jumpNode)
+    this.$nextTick(() => {
+      const pDom = document.querySelector('.home-blog')
+      const refDom = document.querySelector('.home-blog-wrapper')
+      pDom.insertBefore(anchorNode ,refDom)
+      document.querySelector('.hero').appendChild(jumpNode)
+    })
   }
 }
 </script>
