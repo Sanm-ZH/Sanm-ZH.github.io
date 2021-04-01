@@ -203,13 +203,13 @@ module.exports = {
     //   }
     // }],
     // [
-    //   '@vuepress/last-updated',
-    //   {
-    //     transformer: (timestamp, lang) => {
-    //       return new Date(timestamp).toISOString()
-    //     }
-    //   }
-    // ],
+    ['@vuepress/last-updated',
+      {
+        transformer: (timestamp, lang) => {
+          return new Date(timestamp).toISOString()
+        }
+      }
+    ],
     ['@vuepress/nprogress'],
     ['vuepress-plugin-click-copy-markdown', {
       title: '复制',
