@@ -134,7 +134,7 @@ console.log(res); // 6
 ```
 
 ### **reverse**
-> 数组反转
+> 数组反转，返回反转后的数组，原数组也会更新为反转后的数组
 
 ```js
 var arr = [1, 2, 3];
@@ -155,7 +155,7 @@ console.log(res2); // 1:2:3
 ```
 
 ### **sort**
-> 数组排序，返回新排序后的数组
+> 数组排序，返回新排序后的数组，原数组也会更新为排序后的数组
 
 - 返回值为正数，后面的数在前面
 - 返回值为负数，前面的数不变，还在前面
@@ -237,3 +237,75 @@ var arr = [1, 2, 3];
 var res = Array.isArray(arr);
 console.log(res); // true
 ```
+
+## ES6+ 新增数组方法
+### **includes**
+> 数组中是否存在该元素，返回`Boolean`
+
+```js
+const arr = [1, 2, 3]
+arr.includes(1) // true
+arr.includes(4) // false
+```
+
+### **find**
+> 查找数组元素，返回满足条件的一个元素的值，否则返回`undefined`
+
+```js
+let arr = [1, 2, 3]
+arr.find(item => item > 1) // 2
+```
+
+### **findIndex**
+> 查找数组，返回数组中满足条件的第一个元素的索引，若没有找到对应元素则返回 `-1`
+
+```js
+let arr = [1, 2, 3]
+arr.findIndex(item => item > 0) // 0
+```
+
+### **flat**
+> 创建一个新数组，其中所有子数组元素递归地连接到该数组中，直至达到指定的深度
+- depth(深度)，默认为1
+```js
+const arr = [1, 2, [3, [4, 5]]]
+arr.flat() // [1, 2, 3, [4, 5]]
+arr.flat(2) // [1, 2, 3, 4, 5]
+```
+
+### **fill**
+> 填充数组
+
+```js
+const arr = [1, 2, 3]
+arr.fill(6) // [6, 6, 6]
+```
+
+### **Array.from**
+> 方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例<br>
+> 返回一个新的数组
+
+- arrayLike(想要转换成数组的伪数组对象或可迭代对象)
+- mapFn 可选 (如果指定了该参数，新数组中的每个元素会执行该回调函数)
+- thisArg 可选 (可选参数，执行回调函数 mapFn 时 this 对象)
+
+```js
+console.log(Array.from('foo')) // ["f", "o", "o"]
+
+console.log(Array.from([1, 2, 3], x => x + x)) // [2, 4, 6]
+
+```
+
+### **Array.of**
+> 创建一个具有可变数量参数的新数组实例，而不考虑参数的数量或类型
+> 弥补`Array()` 创建数组的不足
+
+```js
+Array.of(1, 2, 3) // [1, 2, 3]
+```
+
+## 改变原数组的方法
+`splice`、`reverse`、`sort`、`push`、`pop`、`shift`、`unshift`、`fill`
+
+## 数组迭代器（Array Iterator）
+`keys`、`values`、`entries`，都为返回一个数字迭代器，使用`iterator.next()`获取下一个值
