@@ -72,3 +72,168 @@ console.log(arr) // ["sanm", 2, 3]
 arr.splice(0, 2, "sanm")
 console.log(arr) // ["sanm", 3]
 ```
+
+### **slice**
+> 截取数组，接收两个参数，生成一个新的数组，返回截取的数组
+- 第一个参数，开始的下标
+- 第二个参数，截取位置前一个的下标
+
+```js
+var arr = [1, 2, 3];
+var res = arr.slice(1, 3);
+console.log(res); // [2, 3]
+```
+
+### **filter**
+> 过滤数组，返回符合满足条件的数组对象，生成一个新的数组
+
+```js
+var arr = [1, 2, 3, 4];
+var res = arr.filter(function(item) {
+    return item >= 3
+})
+console.log(res); // [3, 4]
+```
+
+### **every**
+> 是否全部符合条件，返回`Boolean`，全部满足返回`true`，否则`false`
+
+```js
+var arr = [1, 2, 3, 4];
+var res = arr.every(function(item){
+    return item > 1;
+})
+console.log(res); // false
+```
+
+### **some**
+> 存在符合条件，返回`Boolean`，有一项满足返回`true`，否则`false`
+
+```js
+var arr = [1, 2, 3];
+var res = arr.some(function(item){
+    return item === 1;
+})
+console.log(res); // true
+```
+
+### **reduce**
+> 从左到右为每个数组元素执行一次回调函数，并把上次回调函数的返回值放在一个暂存器中传给下次回调函数，并返回最后一次回调函数的返回值
+
+**参数**
+- Accumulator (acc) (累计器)
+- Current Value (cur) (当前值)
+- Current Index (idx) (当前索引)
+- Source Array (src) (源数组)
+```js
+var arr = [1, 2, 3];
+var res = arr.reduce(function(prev, cur) {
+    return prev += cur;
+})
+console.log(res); // 6
+```
+
+### **reverse**
+> 数组反转
+
+```js
+var arr = [1, 2, 3];
+var res = arr.reverse();
+console.log(res); // [3, 2, 1]
+```
+
+### **join**
+> 数组拼接，返回字符串
+
+```js
+var arr = [1, 2, 3];
+var res1 = arr.join('-');
+var res2 = arr.join(':');
+
+console.log(res1); // 1-2-3
+console.log(res2); // 1:2:3
+```
+
+### **sort**
+> 数组排序，返回新排序后的数组
+
+- 返回值为正数，后面的数在前面
+- 返回值为负数，前面的数不变，还在前面
+- 返回值为0，都不动
+```js
+var arr = [1, 3, 4, 5, 6, 2];
+var res = arr.sort(function(x, y){
+    return x - y;
+})
+console.log(res); // [1, 2, 3, 4, 5, 6]
+```
+
+### **concat**
+> 合并数组，返回合并后的数组
+
+```js
+var arr1 = [1, 2, 3];
+var arr2 = [4, 5, 6];
+var res = arr1.concat(arr2);
+console.log(res);
+```
+
+### **push**
+> 数组末尾添加元素，返回值为数组的`length`属性，原数组会更新为添加元素后的数组<br>
+> 参数为添加元素，多个可用`,`逗号分隔
+
+```js
+var arr = [1, 2, 3];
+var res = arr.push(4);
+console.log(res) // 4
+console.log(arr) // [1, 2, 3, 4]
+```
+
+### **pop**
+> 删除数组末尾元素，返回删除的元素，原数组更新为删除后的数组
+
+```js
+var arr = [1, 2, 3];
+var res = arr.pop();
+console.log(res); // 3
+console.log(arr); // [1, 2]
+```
+
+### **unshift**
+> 向数组开头新增元素，返回数组`length`属性，原数组会更新为添加元素后的数组
+
+```js
+var arr = [1, 2, 3];
+var res = arr.unshift(0);
+console.log(res); // 4
+console.log(arr); // [0, 1, 2, 3]
+```
+
+### **shift**
+> 删除数组开头的元素，返回删除的元素，原数组更新为删除后的数组
+
+```js
+var arr = [1, 2, 3];
+var res = arr.shift();
+console.log(res); // 1
+console.log(arr); // [2, 3]
+```
+
+### **toString**
+> 将数字转换为字符串类型，返回一个字符串<br>
+> 数组某一项如果为对象，则会转换为`[object Object]`
+
+```js
+var arr = [1, 2, 3];
+var res = arr.toString();
+console.log(res); // 1,2,3
+```
+
+### **Array.isArray**
+> 检测是否是一个数组，返回`Boolean`
+
+```js
+var arr = [1, 2, 3];
+var res = Array.isArray(arr);
+console.log(res); // true
+```
