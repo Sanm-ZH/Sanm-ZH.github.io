@@ -133,5 +133,41 @@ info.fn7(); // sanm-zh  bind
 如 `例2` 定义一个对象，对象有属性和和方法；通过对象 `.` 方法调用执行；根据 **`this` 指向最后调用它的那个对象**，所以 `fn` 中的 `this` 指向对象
 
 ### 构造函数调用函数
+:::tip 
+函数调用前使用 `new` 关键字，会调用构造函数<br>
+字面感觉像是创建了一个新的函数，实际 `JavaScript` 函数是重新创建对象
+:::
+
+```js
+function info(arg1, arg2) {
+    this.name = arg1;
+    this.sex = arg2;
+}
+var fn = new info('sanm', '男');
+console.log(fn.sex); // 男
+```
+
+`new` 的过程
+```js
+var fn = new info('sanm', '男');
+
+var obj = {};
+obj.__proto__ = info.prototype;
+var result = info.call(obj, 'sanm', '男');
+return typeof result === 'obj' ? result : obj;
+```
+- 创建一个空对象
+- 将新创建的空对象的隐式原型指向其构造函数的显示原型
+- 使用 `call` 改变 `this` 的指向
+- 如果无返回值或者返回一个非对象值，则将对象返回作为新对象；如果返回值是一个新对象，直接返回
 
 ### 函数方法调用函数
+> 在 `javascript` 中，函数是对象<br>
+> `javascript` 函数有他的属性和方法<br>
+> `call` 和 `apply` 是预定义的函数方法。两个方法可以用于调用函数，两个方法的第一个参数必须是对象本身<br>
+> <br>
+> 在 `javascript` 严格模式(`staic mode`)下，调用函数时第一个参数会成为 `this` 的值，即使该参数不是一个对象<br>
+> 在 `javascript` 非严格模式(`not-strcit mode`)下，如果第一个参数的值是 `null` 或 `undefined`，它将使用全局对象替代
+
+## 分析
+在 `例3` 中，里面的 `fn()` 调用的不是属于第一种调用方式，它作为函数调用，但它没有挂载在任何对象上，所以没有挂载对象的函数在非严格模式下 `this` 指向 `window` 的
