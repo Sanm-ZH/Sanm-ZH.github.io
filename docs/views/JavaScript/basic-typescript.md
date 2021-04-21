@@ -566,3 +566,222 @@ class Dog extends Animal{
 }
 const dog = new Dog('taobao');
 ```
+### 抽象类
+以`abstract`开头的类是抽象类，不希望这个类创建对象的时候。
+
+抽象类中可以添加抽象方法，抽象方法只能定义在抽象类中，子类必须对抽象方法进行重写。
+```js
+abstract class Animal{
+ name: string;
+ 
+ constructor(name: string) {
+  this.name = name;
+ }
+ 
+ // 定义一个抽象方法
+ // 抽象方法使用abstract开头，没有方法体
+ // 抽象方法只能定义在抽象类中，子类必须对抽象方法进行重写
+ abstract sayHello():void;
+}
+```
+## 接口
+```js
+(function(){
+ // 描述一个对象的类型
+ type myType = {
+  name: string,
+  age: number
+ };
+ 
+ // 接口用来定义一个类结构
+ // 用来定义一个类中应该包含哪些属性和方法
+ // 同时接口也可以当成类型声明去使用
+ 
+ interface myInterface{
+  name: string;
+  age: number;
+ }
+ 
+ interface myInterface{
+  gender: string;
+ }
+ 
+ const obj: myType = {
+  name: 'dada',
+  age: 1
+ };
+ 
+ const obj1: myInterface = {
+  name: 'dada',
+  age: 1,
+  gender: '男'
+ };
+ 
+})();
+```
+接口可以在定义类的时候去限制类的结构
+
+接口中的所有的属性都不能有实际的值
+
+接口只定义对象的结构，而不考虑实际值
+
+在接口中所有的方法都是抽象方法
+
+```js
+interface myInter{
+ name: string;
+ 
+ sayHello(): void;
+}
+
+// 定义类时，可以使类去实现一个接口
+// 实现接口就是使类满足接口的要求
+
+class MyClass implements myInter {
+ name: string;
+ constructor(name: stirng) {
+  this.name = name;
+ }
+ sayHello(){
+  // 接口就是就类的限制，定义规范
+ }
+}
+
+```
+## 封装
+```js
+(function(){
+ // 定义一个表示人的类
+ class Person{
+  private _name: string;
+  private _age: number;
+  // public 修饰的属性可以在任意位置访问（修改）默认值
+  // private 私有属性，私有属性只能在类内部进行访问修改
+  
+  // 通过在类中添加方法使得私有属性可以被外部访问
+  
+  constructor(name: string, age: number) {
+   this._name = name;
+   this._age = age;
+  }
+  // 定义方法，用来获取name属性
+  getName() {
+   return this._name;
+  }
+  // 定义方法，用来设置name属性
+  setName(value: string) {
+    if(value>=0) {
+      this._name = value;
+    }
+  }
+  
+  // TS中设置getter方法的法方式
+  get name() {
+  console.log('get name()执行了');
+   return this._name;
+  }
+  set age(value) {
+   if(value>=0){
+    this._age = value;
+   }
+  }
+  }
+ }
+ 
+ const per = new Person('jeskson', 18);
+ console.log(per);
+ 
+ // per.name = 'dadaqianduan.cn';
+ // per.age = 12;
+ 
+ // console.log(per.getName());
+ // per.setName('jeskson');
+ // per.age = 2
+ 
+})();
+```
+## public
+```js
+class A {
+ public num: number;
+ // private num: number;
+ // protected 受保护的属性，只能在当前类和子类中使用
+ constructor(num: number){
+  this.num = num;
+ }
+}
+
+class B extends A {
+ test() {
+  console.log(this.num);
+ }
+}
+
+```
+### 语法糖
+```js
+class C{
+ // 可以直接将属性定义在构造函数中
+ constructor(public name: string, public age: number){
+
+ }
+}
+```
+## 泛型
+在定义函数或是类时，如果遇到类型不明确就可以使用泛型
+```js
+function fn(a: number): number{
+ return a;
+}
+
+function test(arg: any): any{
+    return arg;
+}
+```
+`any`会关闭掉类型的检查，任意类型
+
+`<T>`就是泛型
+```js
+// 类型不明确时，使用泛型
+function fn<T>(a: T): T{
+ return a;
+}
+// T只有在函数的执行的时候，才能定义
+
+fn(10); // 不指定泛型，ts可以自动对类型进行推断
+
+fn<string>('jeskson'); // 指定泛型
+
+function fn2<T,k>(a: T, b: K): T {
+ console.log(b);
+ return a;
+}
+
+fn2<number, string>(123, 'dadaqianduan.cn');
+
+// 限制泛型的类型
+
+interface Inter {
+ length: number;
+}
+
+function fn3<T extends Inter>(a: T): number{
+ return a.length;
+}
+
+fn3('123');
+fn3({length: 12);
+
+```
+
+### 泛型类
+```js
+class MyClass<T> {
+ name: T;
+ constructor(name: T) {
+  this.name = name;
+ }
+}
+
+const sanm = new MyClass<string>('sanmzh');
+```
