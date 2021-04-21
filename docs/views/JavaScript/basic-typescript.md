@@ -307,3 +307,262 @@ tsc xxx.ts -w
 }
 ```
 :::
+## 使用webpack打包
+```js
+// webpack.config.js
+// webpack.config.js
+// 引入一个包
+const path = require('path');
+
+// webpack中的所有的配置信息都应该写在module.exports中
+module.exports = {
+ // 指定入口文件
+ entry: "./src/index.ts",
+ // 指定打包文件所在目录
+ output: {
+  // 指定打包文件的目录
+  path: path.resolve(__dirname, 'dist'),
+  // 打包后文件
+  filename: "bundle.js"
+ },
+ 
+ // 指定webpack打包时要使用模块
+ module: {
+  // 指定要加载的规则
+  rules: [
+   {
+    // test指定的是规则生效的文件
+    test: /\.ts$/,
+    // 要使用的Loader
+    use: 'ts-loader',
+    // 要排除的文件
+    exclude: /node-modules/
+   }
+  ]
+ }
+};
+```
+## webpack
+通常情况下，实际开发中我们都需要使用构建工具对代码进行打包，TS同样也可以结合构建工具一起使用。
+- `webpack`：构建工具`webpack`
+- `webpack-cli`: `webpack`的命令行工具
+- `webpack-dev-server`: `webpack` 的开发服务器
+- `typescript`: ts编译器
+
+```js
+
+// webpack.config.js
+
+// 引入html插件
+const HTMLWebpackPlugiin = require('html-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+
+// 配置webpack插件
+plugins: [
+ new CleanWebpackPlugin(),
+ new HTMLWebpackPlugin({
+  title: "这是一个自定义title"
+ }), // 自动的生成html文件
+]
+
+// 用来设置引用模块
+resolve: {
+ extensions: ['.ts', '.js']
+}
+
+// 指定webpack打包时要使用模块
+module: {
+// 指定要加载的规则
+rules: [
+  {
+  // test指定的是规则生效的文件
+  test: /\.ts$/,
+  // 要使用的Loader
+  use: [
+    {
+    loader: "babel-loader",
+    // 设置babel
+    options: {
+    presets: [
+      [
+      // 指定环境的插件
+      "@babel/preset-env",
+      // 配置信息
+      {
+        targets: {
+        "chrome":"88"
+        }
+        "corejs": "3",
+        // 使用corejs的方式 usage表示按需加载
+        "useBuiltIns":"usage"
+      }
+      ]
+    ]
+    }
+    }
+    'ts-loader'
+    ]
+    // 要排除的文件
+      exclude: /node-modules/
+    }
+  ]
+}
+```
+
+## 面向对象
+程序之中所有的操作都需要通过对象来完成。
+- 操作浏览器要使用`window`对象
+- 操作网页要使用`document`对象
+- 操作控制台要使用`console`对象
+
+计算机程序的本质就是对现实事物的抽象，抽象的反义词是具体，比如：照片是对一个具体的人的抽象，汽车模型是对具体汽车的抽象等等。程序也是对事物的抽象，在抽象中我们可以表示一个人，一条狗等。一个事物到了程序就变成了一个对象。
+
+## 类
+```js
+class Person {
+ // 直接定义的属性是实例属性，需要通过对象的实例去访问：
+ // const per = new Person();
+ // per.name
+ 
+ // 使用static开头的属性是静态属性（类属性），可以直接通过类去访问
+ // Person.age
+ 
+ // readonly开头的属性表示一个只读的属性
+ 
+ // 定义实例属性
+ name: string = 'jeskson';
+ // 在属性前使用static 关键字可以定义类属性（静态属性）
+ static age: number = 18;
+}
+const per = new Person();
+// console.log(per);
+// console.log(per.name, per.age);
+sayHello(){
+ console.log('hello');
+}
+// 不加static，实例对象调用
+// 定义static，类方法或属性
+```
+### 构造函数
+```js
+class Dog{
+ name = 'wang';
+ age = 1;
+ bark(){
+  alert('wang');
+ }
+}
+
+const dog = new Dog();
+const dog2 = new Dog();
+
+console.log(dog);
+console.log(dog2);
+```
+
+```js
+class Dog {
+ name: string;
+ age: number;
+ // constructor 被称为构造函数
+ // 构造函数会在对象创建时调用
+ constructor(name: string, age: number) {
+  // 在实例方法中，this就表示当前的实例
+  // 在构造函数中当前对象就是当前新建的那个对象
+  // 可以通过this向新建的对象中添加属性
+  this.name = name;
+  this.age = age;
+ }
+ bark() {
+  alert('sanm-zh.github.io');
+  // 在方法中可以通过this来表示当前调用方法的对象
+  console.log(this.name);
+ }
+}
+const dog = new Dog('baidu', age: 1);
+const dog2 = new Dog('taobao', age: 2);
+console.log(dog);
+console.log(dog2);
+
+dog2.bark();
+```
+### 继承
+```js
+(function(){
+ // 定义一个表示狗的类
+ class Dog{
+  name: string;
+  age: number;
+  
+  constructor(name: string, age: number) {
+   this.name = name;
+   this.age = age;
+  }
+  
+  sayHello() {
+   console.log('taobao.com')'
+  }
+ }
+ 
+ const dog = new Dog('taobao', 1);
+ console.log(dog);
+ dog.sayHello();
+})();
+```
+使用继承后，子类将会拥有父类所有的方法和属性
+
+使用继承可以将多个类中公有的代码写在一个父类中，这样只需要写一次即可让所有的子类都同时拥有父类中的属性和方法。
+
+子类覆盖掉父类方法的形式，称为方法**重写**。
+
+```js
+class Dog extends Animal{
+ run() {
+  console.log();
+ }
+ sayHello() {
+  console.log();
+ }
+}
+
+```
+### super 超类
+```js
+(function(){
+ class Animal{
+  name: string;
+  
+  constructor(name: string) {
+   this.name = name;
+  }
+  
+  sayHello() {
+   console.log('动物叫');
+  }
+ }
+ 
+ class Dog extends Animal{
+  sayHello() {
+   // 在类的方法中 super 就表示当前类的父类
+   super.sayHello();
+  }
+ }
+ 
+ const dog = new Dog('taobao.com');
+ dog.sayHello();
+})();
+
+class Dog extends Animal{
+ age: number,
+ constructor(name: string, age: number){
+  // 如果在子类中写了构造函数，在子类构造函数中必须对父类引用
+  super(name); // 调用父类的构造函数
+  this.age = age;
+ }
+ sayHello() {
+  // 在类的方法中 super 就表示当前类的父类
+  // super.sayHello();
+ }
+}
+const dog = new Dog('taobao');
+```
