@@ -1,4 +1,6 @@
 import KanBanNiang from './KanBanNiang.vue'
 export default ({ Vue }) => {
-  Vue.component('KanBanNiang', KanBanNiang)
+  if ('development' !== process.env.NODE_ENV) {
+    Vue.component('KanBanNiang', KanBanNiang)
+  }
 }
