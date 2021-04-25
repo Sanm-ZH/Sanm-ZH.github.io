@@ -408,7 +408,39 @@ rules: [
   ]
 }
 ```
+:::details ts项目常用npm包
+```txt
+TypeScript：
 
+typescript；
+ts-loader；
+
+Webpack：
+
+webpack；
+webpack-cli；
+webpack-dev-server；
+html-webpack-plugin；
+clean-webpack-plugin；
+
+Babel：
+
+core-js；
+babel-loader；
+@babel/core；
+@babel/preset-env；
+
+Less & CSS资源：
+
+style-loader；
+css-loader；
+less；
+less-loader；
+postcss；
+postcss-loader；
+postcss-preset-env；
+```
+:::
 ## 面向对象
 程序之中所有的操作都需要通过对象来完成。
 - 操作浏览器要使用`window`对象
