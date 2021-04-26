@@ -212,6 +212,7 @@ module.exports = {
     ],
     ['@vuepress/nprogress'],
     ['vuepress-plugin-click-copy-markdown', {
+    // [require('./plugin/copy-test/index.js'), {
       title: '复制',
       tips: '点击复制',
       showIcon: true
