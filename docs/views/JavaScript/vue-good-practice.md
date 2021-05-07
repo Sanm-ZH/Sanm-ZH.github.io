@@ -1,5 +1,5 @@
 ---
-author: sanmzh
+author: Matt Maribojoc
 title: Vue 优秀写法
 categories: [JavaScript]
 tags: [vue]
@@ -118,3 +118,119 @@ export default {
   }
 }
 ```
+## 组件名统一使用驼峰或者短横线
+推荐使用驼峰式，因为大多数IDE自动完成功能都支持它
+
+```js
+// bad
+mycomponent.vue
+myComponent.vue
+Mycomponent.vue
+
+// good
+MyComponent.vue
+```
+
+## 基本组件应该相应的加上前缀
+基本组件是仅包含以下内容的组件：
+- HTML 元素
+- 额外的基础组件
+- 第三方的UI组件
+为这些组件命名的最佳实践是为它们提供前缀`Base`、`V`或`App`。同样，只要我们在整个项目中保持一致，可以使用其中任何一种
+```js
+BaseButton.vue
+BaseIcon.vue
+BaseHead.vue
+```
+命名约定的目的是使基本组件按字母顺序分组在文件系统中。另外，通过使用`webpack`导入功能，我们可以搜索与命名约定模式匹配的组件，并将所有组件自动导入为`Vue`项目中的全局变量
+
+## 单实例组件命名应该带有前缀 The
+与基本组件类似，单实例组件(每个页面使用一次，不接受任何`prop`)应该有自己的命名约定。这些组件特定于我们的应用，通常是 `footer`，`header`或`sider`
+
+该组件只能有一个激活实例
+
+```js
+TheHeader.vue
+TheFooter.vue
+TheSidebar.vue
+ThePopup.vue
+```
+
+## 保持指令简写一致
+例如：
+- `@`是 `v-on` 的简写
+- `:` 是 `v-bind` 的简写
+- `#` 是 `v-slot` 的简写
+
+## 不要在 created 和 watch 中调用方法
+`Vue`开发人员经常犯的一个错误是他们不必要地在`created`和`watch`中调用方法。其背后的想法是，我们希望在组件初始化后立即运行`watch`
+```js
+// bad
+created() {
+  this.handleChange()
+},
+methods: {
+  handleChange() {
+    // stuff happens
+  }
+},
+watch () {
+  property() {
+    this.handleChange()
+  }
+}
+```
+但是，`Vue`为此提供了内置的解决方案，这是我们经常忘记的`Vue watch`属性。
+
+我们要做的就是稍微重组`watch`并声明两个属性：
+
+1. `handler (newVal, oldVal)` 这是我们的`watch`方法本身。
+
+2. `immediate: true` 代表如果在 `wacth` 里声明了之后，就会立即先去执行里面的`handler`方法，如果为`false`就跟我们以前的效果一样，不会在绑定的时候就执行
+```js
+// good
+methods: {
+  handleChange() {
+    // stuff happens
+  }
+},
+watch () {
+  property {
+    immediate: true
+    handler() {
+      this.handleChange()
+    }
+  }
+}
+```
+## 模板表达式应该只有基本的 JS 表达式
+在模板中添加尽可能多的内联功能是很自然的。但是这使得我们的模板不那么具有声明性，而且更加复杂，也让模板会变得非常混乱
+
+```js
+// bad
+{{
+  fullName.split(' ').map(function (word) {
+    return word[0].toUpperCase() + word.slice(1)
+  }).join(' ')
+}}
+```
+基本上，我们希望模板中的所有内容都直观明了。为了保持这一点，我们应该将复杂的表达式重构为适当命名的组件选项
+
+分离复杂表达式的另一个好处是可以重用这些值
+
+```js
+// good
+{{ normalizedFullName }}
+
+// The complex expression has been moved to a computed property
+computed: {
+  normalizedFullName: function () {
+    return this.fullName.split(' ').map(function (word) {
+      return word[0].toUpperCase() + word.slice(1)
+    }).join(' ')
+  }
+}
+```
+----
+作者：**Matt Maribojoc** 来源：**medium** </br>
+[https://medium.com/better-progran/12-vuejs-best-practices-for-pro-developers-28d1f629018c](https://medium.com/better-progran/12-vuejs-best-practices-for-pro-developers-28d1f629018c)
