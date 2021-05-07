@@ -1,6 +1,6 @@
 ---
-author: sisterAn
-title: ES6+特性
+author: sanmzh
+title: JS代码片段推荐
 categories: [JavaScript]
 tags: [js, utilsFn]
 date: 2021-05-07 10:31:02
