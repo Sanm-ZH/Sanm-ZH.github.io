@@ -3,7 +3,7 @@ author: sanmzh
 title: 闭包 Closure
 categories: [JavaScript]
 tags: [js]
-date: 2021-05-10 15:16:13
+date: 2021-05-11 13:57:27
 ---
 
 <Boxx changeTime="30000"/>
