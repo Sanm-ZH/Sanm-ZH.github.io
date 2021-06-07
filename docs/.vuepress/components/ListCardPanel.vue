@@ -3,14 +3,16 @@
     <div class="list-wrapper">
       <Card class="wrapper-item" v-for="(blog, index) in currentPageData" :key="index">
         <template slot="front">
-          <img class="thumbnail" :src="blog.thumbnail" alt="缩略图" v-if="blog.thumbnail">
+          <div class="wrapper-img-cont" v-if="blog.thumbnail">
+            <img class="thumbnail" :src="blog.thumbnail" alt="缩略图">
+          </div>
           <div class="noImgTitle" v-else>{{ blog.name }}</div>
         </template>
         <template slot="back">
           <div class="info">
             <h4 class="title">{{ blog.name }}</h4>
             <p class="desc" :title="blog.desc">{{ blog.desc }}</p>
-            <a v-for="(aItem, aIndex) in blog.links" :key="aIndex" class="btn" target="blank" :href="aItem">跳转{{ aIndex + 1 }}</a>
+            <a v-for="(aItem, aIndex) in blog.links" :key="aIndex" class="btn" target="blank" :href="aItem.url">{{ aItem.name || `跳转${aIndex + 1}` }}</a>
           </div>
         </template>
       </Card>
@@ -114,4 +116,12 @@ export default {
   align-items center
   font-weight bold
   color #37aabb
+.wrapper-img-cont
+  width 100%
+  height 100%
+  display flex
+  justify-content center
+  align-items center
+img
+  height 140px
 </style>
