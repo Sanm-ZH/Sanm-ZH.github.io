@@ -28,5 +28,15 @@ export default [
       { url: 'https://github.com/Sanm-ZH/vue3-doc', name: 'SourceCode' }
     ],
     thumbnail: '/vue3-doc.jpg'
+  },
+  {
+    name: 'Vue+TS Demo',
+    desc: 'Vue+TS+Vite 实战演示',
+    links: [
+      { url: 'https://sanm-zh.gitee.io/vue3-ts-vite', name: 'gitee' },
+      { url: 'https://sanm-zh.github.io/vue3-ts-vite', name: 'github' },
+      { url: 'https://github.com/Sanm-ZH/vue3-ts-vite', name: 'SourceCode' }
+    ],
+    thumbnail: '/vue3-ts-vite.jpg'
   }
 ]
