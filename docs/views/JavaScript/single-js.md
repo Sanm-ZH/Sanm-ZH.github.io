@@ -67,3 +67,74 @@ let bar = 'bar'
 
 [foo, bar] = [bar, foo]
 ```
+
+## 计算两个日期之间的天数
+```js
+const daysDiff = (date1, date2) => Math.ceil(Math.abs(date1 - date2) / 86400000)
+```
+
+## 将文字复制到剪切板
+```js
+const copyTextToClipboard = async text => {
+  await navigator.clipboard.writeText(text)
+}
+```
+
+## 合并多个数组的不同方法
+可以使用 `concat` 或 扩展运算符 `...`
+```js
+const merge = (a, b) => a.concat(b)
+const merge = (a, b) => [...a, ...b]
+
+// 合并并去重
+const merge = [...new Set(a.concat(b))]
+const merge = [...new Set([...a, ...b])]
+```
+
+## 获取javascript语言的实际类型
+```js
+const trueTypeOf = (obj) => {
+  return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase()
+}
+
+console.log(trueTypeOf(''))
+// string
+console.log(trueTypeOf(0))
+// number
+console.log(trueTypeOf())
+// undefined
+console.log(trueTypeOf(null))
+// null
+console.log(trueTypeOf({}))
+// object
+console.log(trueTypeOf([]))
+// array
+console.log(trueTypeOf(0))
+// number
+console.log(trueTypeOf(() => {}))
+// function
+```
+
+## 末尾截断字符串
+```js
+const truncateString = (string, length) => {
+  return string.length < length ? string : `${string.slice(0, length - 3)}...`
+}
+```
+
+## 中间截断字符串
+```js
+const truncateStringMiddle = (string, length, start, end) => {
+  return `${string.slice(0, start)}...${string.slice(string.length - end)}`
+}
+```
+
+## 是否是Apple设备上
+```js
+const isAppleDevice = () => /Mac|iPod|iPhone|iPad/.test(navigator.platform)
+```
+
+ps: `!document.hidden` 当前选项卡是否在视图/焦点内
+
+## 三元运算符
+当你只想在一行中编写 `if...else` 语句时，可以试试三元运算符
