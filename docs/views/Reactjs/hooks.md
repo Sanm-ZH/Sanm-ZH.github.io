@@ -1,5 +1,5 @@
 ---
-author: sanmzh
+author: frontMoment
 title: Hooks对应react class component
 categories: [Reactjs]
 tags: [react, js, hooks]
