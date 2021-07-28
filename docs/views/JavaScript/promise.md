@@ -106,7 +106,7 @@ console.log('谁先')
 // 谁先
 // 成功
 ```
-:::warn
+:::warning
 `Promise`回调函数中的第一个参数`resolve`，会对`Promise`执行**拆箱**
 `Promise`回调函数中的第二个参数`reject`不具备**拆箱**的能力
 :::
