@@ -106,6 +106,10 @@ console.log('谁先')
 // 谁先
 // 成功
 ```
+:::warn
+`Promise`回调函数中的第一个参数`resolve`，会对`Promise`执行**拆箱**
+`Promise`回调函数中的第二个参数`reject`不具备**拆箱**的能力
+:::
 
 ### Promise 异常
 `Promise`中的异常由`then`参数中的第二个回调函数(`Promise`执行失败的回调)处理，异常信息将作为`Promise`的值。异常一旦得到处理，`then`返回后续的`Promise`对象将恢复正常，并会被`Promise`执行成功的回调函数处理。
