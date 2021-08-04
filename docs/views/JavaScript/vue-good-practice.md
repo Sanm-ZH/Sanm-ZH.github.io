@@ -1,8 +1,8 @@
 ---
 author: Matt Maribojoc
 title: Vue 优秀写法
-categories: [JavaScript]
-tags: [vue]
+categories: [Vuejs]
+tags: [vue,good-writing]
 date: 2021-05-06 16:17:16
 ---
 

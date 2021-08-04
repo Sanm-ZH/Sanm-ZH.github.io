@@ -1,8 +1,8 @@
 ---
 author: Michael Thiessen
 title: Vue 作用域
-categories: [JavaScript]
-tags: [vue]
+categories: [Vuejs]
+tags: [vue, vue-scope]
 date: 2021-05-08 10:35:55
 ---
 

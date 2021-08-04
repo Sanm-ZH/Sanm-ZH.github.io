@@ -1,8 +1,8 @@
 ---
 author: sanmzh
 title: Vue 修饰符及一些简写
-categories: [JavaScript]
-tags: [vue]
+categories: [Vuejs]
+tags: [vue,vue-qualifier]
 date: 2021-05-10 10:11:07
 ---
 

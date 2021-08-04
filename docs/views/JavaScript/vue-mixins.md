@@ -1,8 +1,8 @@
 ---
 author: sanmzh
 title: Vue 混入(Mixins)理解
-categories: [JavaScript]
-tags: [vue]
+categories: [Vuejs]
+tags: [vue, vue-mixins]
 date: 2021-05-08 10:52:10
 ---
 
