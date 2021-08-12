@@ -8,7 +8,7 @@ date: 2021-08-10 11:35:40
 
 <Boxx changeTime="30000"/>
 
-### Vue2组件通信
+## Vue2组件通信
 
 > 父组件向子组件传值
 ### `props`
@@ -239,3 +239,106 @@ export default{
 
 参考：[vuex](https://vuex.vuejs.org/zh)
 
+:::warning 总结
+**vue2 通信方式**
+- **父子通信** 父向子传递数据通过`props`，子向父传递数据通过`$emit`事件，父链/子链使用`parent/children`，直接访问组件实例用 `refs`
+- **兄弟通信** `bus`、`Vuex`
+- **跨级通信** `bus`、`Vuex`、`provide/inject`
+:::
+
+## Vue3组件通信
+### `props`、`emit`
+`setup`函数可以接收两个参数，`props`和`context`，利用`context`解构出`emit`实例
+```vue
+// Child.vue
+<template>
+  <button @click="handleClick">点击测试</button>
+  <div>父组件传过来的数据：{{name}}</div>
+</template>
+
+<script>
+export default {
+  name:"Child",
+  props: {
+    name: {
+      type: String,
+      default: ''
+    }
+  },
+  setup(props,{ emit }) {
+    console.log(props.name) // => "sanm"
+
+    const handleClick = () => {
+      emit('handleClick', '点击测试')
+    }
+
+    return {
+      handleClick
+    }
+  }
+}
+</script>
+
+// parent.vue
+<template>
+  <Child @click="handleClick" :name="sanm" />
+</template>
+
+<script>
+import Child from './Child'
+export default {
+  name:'Parent',
+  components:{ Child },
+  setup() {
+    const handleClick = (msg) => {
+      console.log(msg) // 点击测试
+    }
+
+    return {
+      handleClick
+    }
+  }
+}
+</script>
+```
+
+### `ref`
+```vue
+<template>
+  <Test ref="btnRef">
+    <button @click="handleClick">我是插槽按钮</button>
+  </Test>
+</template>
+<script>
+import { ref } from "vue"
+import Test from './index.vue'
+export default {
+  components: {Test},
+  setup() {
+    const btnRef = ref(null)
+    cosnt handleClick = () => {
+      btnRef.value?.xxxx // => 可以直接使用 test 实例的属性、方法
+    }
+    return {
+      btnRef,
+      handleClick
+    }
+  }
+}
+</script>
+```
+
+### `provide`、`inject`
+使用和`vue2`类似，不过获取实例方式要变，可以直接从`vue`中解构出`provide`、`inject` 实例
+```vue
+<script>
+import {provide, inject} from 'vue'
+</script>
+```
+
+### Vuex
+`Vue3`中使用的`vuex`写法也升级了
+
+:::warning 总结
+`Vue3`组件通信和`Vue2`差别不大，就写法上略有不同
+:::
