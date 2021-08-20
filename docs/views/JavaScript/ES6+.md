@@ -20,7 +20,7 @@ date: 2021-04-28 15:48:57
 - ES12 的逻辑赋值操作符、数字分隔符、`Promise.any()`
 
 ## 重要
-ES6 的特性都很重要，ES7-ES11中：
+ES6 的特性都很重要，`ES7-ES11`中：
 - ES8 的 `async/await`
 - ES9 的 `for await of`
 - ES11 的 `Promise.allSettled` 、ES9 的 `Promise.finally()` 、ES12 的 `Promise.any()`
