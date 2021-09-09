@@ -343,3 +343,134 @@ function shellSort(arr) {
 #### 复杂度
 - **时间复杂度**：`O(nlogn)`
 - **空间复杂度**：`O(1)`
+
+### 计数排序
+:::tip 原理
+计数排序不是基于比较的排序算法，其核心在于将输入的数据值转化为键存储在额外开辟的数组空间中。
+
+作为一种线性时间复杂度的排序，计数排序要求输入的数据必须是有确定范围的整数。它是一种典型的拿空间换时间的排序算法。
+:::
+
+#### 图示
+![计数排序](../../.vuepress/public/countingSort.gif)
+
+#### 代码
+```js
+function countingSort(arr, maxValue) => {
+    // 开辟的新的数组，用于将输入的数据值转化为键存储
+    var bucket = new Array(maxValue + 1),
+        sortedIndex = 0,
+        arrLen = arr.length,
+        bucketLen = maxValue + 1
+
+    // 存储
+    for (var i = 0; i < arrLen; i++) {
+        if (!bucket[arr[i]]) {
+            bucket[arr[i]] = 0
+        }
+        bucket[arr[i]]++
+    }
+
+    // 将数据从bucket按顺序写入arr中
+    for (var j = 0; j < bucketLen; j++) {
+        while(bucket[j]-- > 0) {
+            arr[sortedIndex++] = j
+        }
+    }
+    return arr
+}
+```
+#### 复杂度
+- **时间复杂度**：`O(n+k)`
+- **空间复杂度**：`O(n+k)`
+
+### 桶排序
+:::tip 原理
+桶排序是计数排序的升级版。它也是利用函数的映射关系。
+
+**桶排序 (Bucket sort)**的工作的原理：假设输入数据服从均匀分布，将数据分到有限数量的桶里，每个桶再分别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排）。
+
+**步骤**：
+- 首先使用 `arr` 来存储频率
+- 然后创建一个数组（有数量的桶），将频率作为数组下标，对于出现频率不同的数字集合，存入对应的数组下标（桶内）即可
+:::
+
+#### 代码
+```js
+// 桶排序
+let bucketSort = (arr) => {
+    let bucket = [], res = []
+    arr.forEach((value, key) => {
+        // 利用映射关系（出现频率作为下标）将数据分配到各个桶中
+        if(!bucket[value]) {
+            bucket[value] = [key]
+        } else {
+            bucket[value].push(key)
+        }
+    })
+    // 遍历获取出现频率
+    for(let i = 0;i <= bucket.length - 1;i++){
+        if(bucket[i]) {
+            res.push(...bucket[i])
+        }
+ }
+ return res
+}
+```
+
+#### 复杂度
+- **时间复杂度**：`O(n)`
+- **空间复杂度**：`O(n)`
+
+### 基数排序
+:::tip 原理
+基数排序是一种非比较型整数排序算法，其原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。由于整数也可以表达字符串（比如名字或日期）和特定格式的浮点数，所以基数排序也不是只能使用于整数。
+
+**步骤**：
+- 取得数组中的最大数，并取得位数
+- `arr` 为原始数组，从最低位开始取每个位组成`radix`数组
+- 对`radix`进行计数排序（利用计数排序适用于小范围数的特点）
+:::
+
+#### 图示
+![基数排序](../../.vuepress/public/radixSort.gif)
+
+#### 代码
+```js
+//LSD Radix Sort
+var counter = [];
+function radixSort(arr, maxDigit) {
+    var mod = 10;
+    var dev = 1;
+    for (var i = 0; i < maxDigit; i++, dev *= 10, mod *= 10) {
+        for(var j = 0; j < arr.length; j++) {
+            var bucket = parseInt((arr[j] % mod) / dev);
+            if(counter[bucket]==null) {
+                counter[bucket] = [];
+            }
+            counter[bucket].push(arr[j]);
+        }
+        var pos = 0;
+        for(var j = 0; j < counter.length; j++) {
+            var value = null;
+            if(counter[j]!=null) {
+                while ((value = counter[j].shift()) != null) {
+                      arr[pos++] = value;
+                }
+          }
+        }
+    }
+    return arr;
+}
+```
+
+#### 复杂度
+- **时间复杂度**：基数排序基于分别排序，分别收集，所以是稳定的。但基数排序的性能比桶排序要略差，每一次关键字的桶分配都需要`O(n)`的时间复杂度，而且分配之后得到新的关键字序列又需要`O(n)`的时间复杂度。假如待排数据可以分为 `d` 个关键字，则基数排序的时间复杂度将是`O(d*2n)` ，当然d要远远小于`n`，因此基本上还是线性级别的
+- **空间复杂度**：`O(n+k)`，其中k为桶的数量。一般来说 `n>>k`，因此额外空间需要大概 `n` 个左右
+
+### 基数排序 vs 计数排序 vs 桶排序
+这三种排序算法都利用了桶的概念，但对桶的使用方法上有明显差异：
+
+- **基数排序**：根据键值的每位数字来分配桶；
+- **计数排序**：每个桶只存储单一键值；
+- **桶排序**：每个桶存储一定范围的数值；
