@@ -474,3 +474,76 @@ function radixSort(arr, maxDigit) {
 - **基数排序**：根据键值的每位数字来分配桶；
 - **计数排序**：每个桶只存储单一键值；
 - **桶排序**：每个桶存储一定范围的数值；
+
+### 堆排序
+:::tip 原理
+堆是一棵完全二叉树，它可以使用数组存储，并且大顶堆的最大值存储在根节点（i=1），所以我们可以每次取大顶堆的根结点与堆的最后一个节点交换，此时最大值放入了有效序列的最后一位，并且有效序列减1，有效堆依然保持完全二叉树的结构，然后堆化，成为新的大顶堆，重复此操作，知道有效堆的长度为 0，排序完成。
+
+步骤为：
+- 将原序列（n个）转化成一个大顶堆
+- 设置堆的有效序列长度为 n
+- 将堆顶元素（第一个有效序列）与最后一个子元素（最后一个有效序列）交换，并有效序列长度减1
+- 堆化有效序列，使有效序列重新称为一个大顶堆
+- 重复以上2步，直到有效序列的长度为 1，排序完成
+:::
+
+#### 图示
+![基数排序](../../.vuepress/public/heapSort.gif)
+
+#### 代码
+```js
+function heapSort(items) {
+    // 构建大顶堆
+    buildHeap(items, items.length-1)
+    // 设置堆的初始有效序列长度为 items.length - 1
+    let heapSize = items.length - 1
+    for (var i = items.length - 1; i > 1; i--) {
+        // 交换堆顶元素与最后一个有效子元素
+        swap(items, 1, i);
+        // 有效序列长度减 1
+        heapSize --;
+        // 堆化有效序列(有效序列长度为 currentHeapSize，抛除了最后一个元素)
+        heapify(items, heapSize, 1);
+    }
+    return items;
+}
+
+// 原地建堆
+// items: 原始序列
+// heapSize: 有效序列长度
+function buildHeap(items, heapSize) {
+    // 从最后一个非叶子节点开始，自上而下式堆化
+    for (let i = Math.floor(heapSize/2); i >= 1; --i) {    
+        heapify(items, heapSize, i);  
+    }
+}
+function heapify(items, heapSize, i) {
+    // 自上而下式堆化
+    while (true) {
+        var maxIndex = i;
+        if(2*i <= heapSize && items[i] < items[i*2] ) {
+            maxIndex = i*2;
+        }
+        if(2*i+1 <= heapSize && items[maxIndex] < items[i*2+1] ) {
+            maxIndex = i*2+1;
+        }
+        if (maxIndex === i) break;
+        swap(items, i, maxIndex); // 交换 
+        i = maxIndex; 
+    }
+}  
+function swap(items, i, j) {
+    let temp = items[i]
+    items[i] = items[j]
+    items[j] = temp
+}
+
+// 测试
+var items = [,1, 9, 2, 8, 3, 7, 4, 6, 5]
+heapSort(items)
+// [empty, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+#### 复杂度
+- **时间复杂度**：建堆过程的时间复杂度是 `O(n)` ，排序过程的时间复杂度是 `O(nlogn)` ，整体时间复杂度是 `O(nlogn)`
+- **空间复杂度**：`O(1)`
