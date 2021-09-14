@@ -488,7 +488,7 @@ function radixSort(arr, maxDigit) {
 :::
 
 #### 图示
-![基数排序](../../.vuepress/public/heapSort.gif)
+![堆排序](../../.vuepress/public/heapSort.gif)
 
 #### 代码
 ```js
@@ -547,3 +547,146 @@ heapSort(items)
 #### 复杂度
 - **时间复杂度**：建堆过程的时间复杂度是 `O(n)` ，排序过程的时间复杂度是 `O(nlogn)` ，整体时间复杂度是 `O(nlogn)`
 - **空间复杂度**：`O(1)`
+
+### 实现一个快排
+:::tip 
+快排使用了分治策略的思想，所谓分治，顾名思义，就是分而治之，将一个复杂的问题，分成两个或多个相似的子问题，在把子问题分成更小的子问题，直到更小的子问题可以简单求解，求解子问题，则原问题的解则为子问题解的合并。
+
+快排的过程简单的说只有三步：
+
+首先从序列中选取一个数作为基准数
+将比这个数大的数全部放到它的右边，把小于或者等于它的数全部放到它的左边 （一次快排 partition）
+然后分别对基准的左右两边重复以上的操作，直到数组完全排序
+
+具体按以下步骤实现：
+
+- 创建两个指针分别指向数组的最左端以及最右端
+- 在数组中任意取出一个元素作为基准
+- 左指针开始向右移动，遇到比基准大的停止
+- 右指针开始向左移动，遇到比基准小的元素停止，交换左右指针所指向的元素
+- 重复3，4，直到左指针超过右指针，此时，比基准小的值就都会放在基准的左边，比基准大的值会出现在基准的右边
+- 然后分别对基准的左右两边重复以上的操作，直到数组完全排序
+:::
+
+#### 图示
+![快速排序](../../.vuepress/public/quickSort2.gif)
+
+但这对几乎已经有序的序列来说，并不是最好的选择，它将会导致算法的最坏表现。还有一种做法，就是选择中间的数或通过 Math.random() 来随机选取一个数作为基准，下面的代码实现就是以随机数作为基准。
+
+#### 代码
+```js
+let quickSort = (arr) => {
+  quick(arr, 0 , arr.length - 1)
+}
+
+let quick = (arr, left, right) => {
+  let index
+  if(left < right) {
+    // 划分数组
+    index = partition(arr, left, right)
+    if(left < index - 1) {
+      quick(arr, left, index - 1)
+    }
+    if(index < right) {
+      quick(arr, index, right)
+    }
+  }
+}
+
+// 一次快排
+let partition = (arr, left, right) => {
+  // 取中间项为基准
+  var datum = arr[Math.floor(Math.random() * (right - left + 1)) + left],
+      i = left,
+      j = right
+  // 开始调整
+  while(i <= j) {
+    
+    // 左指针右移
+    while(arr[i] < datum) {
+      i++
+    }
+    
+    // 右指针左移
+    while(arr[j] > datum) {
+      j--
+    }
+    
+    // 交换
+    if(i <= j) {
+      swap(arr, i, j)
+      i += 1
+      j -= 1
+    }
+  }
+  return i
+}
+
+// 交换
+let swap = (arr, i , j) => {
+    let temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
+}
+
+// 测试
+let arr = [1, 3, 2, 5, 4]
+quickSort(arr)
+console.log(arr) // [1, 2, 3, 4, 5]
+// 第 2 个最大值
+console.log(arr[arr.length - 2])  // 4
+```
+快排是从小到大排序，所以第 `k` 个最大值在 `n-k` 位置上
+
+#### 复杂度
+- 时间复杂度：`O(nlogn)`
+- 空间复杂度：`O(nlogn)`
+
+### 洗牌算法
+打乱一个没有重复元素的数组
+
+#### 代码
+```js
+// 以数字集合 1, 2 和 3 初始化数组。
+int[] nums = {1,2,3};
+Solution solution = new Solution(nums);
+
+// 打乱数组 [1,2,3] 并返回结果。任何 [1,2,3]的排列返回的概率应该相同。
+solution.shuffle();
+
+// 重设数组到它的初始状态[1,2,3]。
+solution.reset();
+
+// 随机返回数组[1,2,3]打乱后的结果。
+solution.shuffle();
+```
+
+```js
+let Solution = function(nums) {
+    this.nums = nums
+};
+
+Solution.prototype.reset = function() {
+    return this.nums
+};
+
+Solution.prototype.shuffle = function() {
+    let res = [...this.nums]
+    let n = res.length
+    for(let i = n-1; i >= 0; i--) {
+        let randIndex = Math.floor(Math.random() * (i + 1))
+        swap(res, randIndex, i)
+    }
+    return res
+};
+
+let swap = function(arr, i, j) {
+    const temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
+}
+```
+
+#### 复杂度
+- **时间复杂度**：`O(n)`
+- **空间复杂度**：`O(n)`，需要实现 `reset` 功能，原始数组必须得保存一份
