@@ -548,6 +548,8 @@ heapSort(items)
 - **时间复杂度**：建堆过程的时间复杂度是 `O(n)` ，排序过程的时间复杂度是 `O(nlogn)` ，整体时间复杂度是 `O(nlogn)`
 - **空间复杂度**：`O(1)`
 
+### 实践、常见题目
+
 ### 实现一个快排
 :::tip 
 快排使用了分治策略的思想，所谓分治，顾名思义，就是分而治之，将一个复杂的问题，分成两个或多个相似的子问题，在把子问题分成更小的子问题，直到更小的子问题可以简单求解，求解子问题，则原问题的解则为子问题解的合并。
@@ -660,7 +662,7 @@ solution.reset();
 // 随机返回数组[1,2,3]打乱后的结果。
 solution.shuffle();
 ```
-
+#### Fisher-Yates 洗牌算法
 ```js
 let Solution = function(nums) {
     this.nums = nums
@@ -690,3 +692,222 @@ let swap = function(arr, i, j) {
 #### 复杂度
 - **时间复杂度**：`O(n)`
 - **空间复杂度**：`O(n)`，需要实现 `reset` 功能，原始数组必须得保存一份
+
+### 希尔排序的过程？希尔排序的时间复杂度和空间复杂度？
+1959年Shell发明，第一个突破 O(n^2^) 的排序算法，是简单插入排序的改进版。它与插入排序的不同之处在于，它会优先比较距离较远的元素。
+
+#### 插入排序
+> 同上[插入排序](#插入排序)
+
+#### 希尔排序
+> 同上[希尔排序](#希尔排序)
+
+### 排序链表
+在 `O(n log n)` 时间复杂度和常数级空间复杂度下，对链表进行排序。
+
+#### 实例
+```text
+输入: 4->2->1->3
+输出: 1->2->3->4
+```
+
+```text
+输入: -1->5->3->4->0
+输出: -1->0->3->4->5
+```
+
+**采用归并排序**
+归并排序采用了分治策略，将数组分成2个较小的数组，然后每个数组再分成两个更小的数组，直至每个数组里只包含一个元素，然后将小数组不断的合并成较大的数组，直至只剩下一个数组，就是排序完成后的数组序列。
+
+```text
+4->2->1->3
+```
+
+1. 分隔
+![分隔](../../.vuepress/public/sort-divide.png)
+- 使用快慢指针（双指针法），获取链表的中间节点
+- 根据中间节点，分割成两个小链表
+- 递归执行上一步，直到小链表中只有一个节点
+
+2. 归并（合并有序链表）
+![归并](../../.vuepress/public/sort-merge.png)
+```js
+let sortList = function(head) {
+    return mergeSortRec(head)
+}
+
+// 归并排序
+// 若分裂后的两个链表长度不为 1，则继续分裂
+// 直到分裂后的链表长度都为 1，
+// 然后合并小链表
+let mergeSortRec = function (head) {
+    if(!head || !head.next) {
+        return head
+    }
+
+    // 获取中间节点
+    let middle = middleNode(head)
+    // 分裂成两个链表
+    let temp = middle.next
+    middle.next = null
+    let left = head, right = temp
+    // 继续分裂（递归分裂）
+    left = mergeSortRec(left)
+    right = mergeSortRec(right)
+    // 合并两个有序链表
+    return mergeTwoLists(left, right)
+}
+
+// 获取中间节点
+// - 如果链表长度为奇数，则返回中间节点
+// - 如果链表长度为偶数，则有两个中间节点，这里返回第一个
+let middleNode = function(head) {
+    let fast = head, slow = head
+    while(fast && fast.next && fast.next.next) {
+        slow = slow.next
+        fast = fast.next.next
+    }
+    return slow
+}
+
+// 合并两个有序链表
+let mergeTwoLists = function(l1, l2) {
+    let preHead = new ListNode(-1);
+    let cur = preHead;
+    while(l1 && l2){
+        if(l1.val < l2.val){
+            cur.next = l1;
+            l1 = l1.next;
+        }else{
+            cur.next = l2;
+            l2 = l2.next;
+        }
+        cur = cur.next;
+    }
+    cur.next = l1 || l2;
+    return preHead.next;
+}
+```
+**引入递归算法的复杂度分析**：
+- **时间复杂度**：`递归的总次数 * 每次递归的数量`
+- **空间复杂度**：`递归的深度 * 每次递归创建变量的个数`
+
+#### 复杂度
+**时间复杂度**：递归的总次数为 `T(logn)` ，每次递归的数量为 `T(n)` ，时间复杂度为 `O(nlogn)`
+**空间复杂度**：递归的深度为 `T(logn)` ，每次递归创建变量的个数为 `T(c)` `（c为常数）`，空间复杂度为 `O(logn)`
+
+#### 优化递归
+使用迭代代替递归，优化时间复杂度：`O(logn) —> O(1)`
+
+### 扑克牌问题
+魔术师手中有一堆扑克牌，观众不知道它的顺序，接下来魔术师：
+
+- 从牌顶拿出一张牌， 放到桌子上
+- 再从牌顶拿一张牌， 放在手上牌的底部
+
+如此往复（不断重复以上两步），直到魔术师手上的牌全部都放到了桌子上。
+
+此时，桌子上的牌顺序为：(牌顶) **1,2,3,4,5,6,7,8,9,10,11,12,13** (牌底)。
+
+问：原来魔术师手上牌的顺序，用函数实现。
+
+**解答：反向推导**
+
+假设，原来魔术师手上牌的顺序数组为 `origin` ，最后放在桌子上的顺序数组为 `result`
+
+**正向的操作为**: `origin` 取出第一个插入 `result` 前面， `origin` 再取出第一个换到自己的末尾，如此重复；
+
+**反向操作为**: `origin` 最后一个放到自己的第一个前面， `result` 拿出第一个插入 `origin` 前面，如此重复；
+```js
+const calc = (arr) => {
+    const origin = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (origin.length) {
+            const item = origin.pop();
+            origin.unshift(item);
+        }
+        origin.unshift(result[i])
+    }
+    return origin;
+}
+
+// 测试
+const result = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+// 原有顺序
+calc(result)
+// [13, 2, 12, 6, 11, 3, 10, 5, 9, 1, 8, 4, 7]
+```
+
+### 有效三角形的个数
+给定一个包含非负整数的数组，你的任务是统计其中可以组成三角形三条边的三元组个数。
+
+#### 实例
+```text
+输入: [2,2,3,4]
+输出: 3
+解释:
+有效的组合是: 
+2,3,4 (使用第一个 2)
+2,3,4 (使用第二个 2)
+2,2,3
+```
+
+- 数组长度不超过`1000`
+- 数组里整数的范围为 `[0, 1000]`
+
+#### 排序+双指针
+我们知道三角形的任意两边之和大于第三边，任意两边之差小于第三边，如果这三条边长从小到大为 `a 、 b 、 c` ，当且仅当 `a + b > c` 这三条边能组成三角形。
+
+先数组排序，排序完后，固定最长的边，利用双指针法判断其余边
+
+以 `nums[nums.length - 1]` 作为最长的边 `nums[k]` （ `k = nums.length - 1` ）
+
+以 `nums[i]` 作为最短边，以 `nums[nums.length - 2]` 作为第二个数 `nums[j]` （ `j = nums.length - 2` ） ，
+
+判断 `nums[i] + nums[j]` 是否大于 `nums[k]` ，
+
+- `nums[i] + nums[j] > nums[k]` ，则：
+  ```js
+  nums[i+1] + nums[j] > nums[k]
+  nums[i+2] + nums[j] > nums[k]
+  ...
+  nums[j-1] + nums[j] > nums[k]
+  ```
+  则可构成三角形的三元组个数加 `j-i` ，并且 `j` 往前移动一位（ `j--`）， 继续进入下一轮判断
+
+- `nums[i] + nums[j] <= nums[k]`，则 `l` 往后移动一位（`nums` 是增序排列），继续判断
+
+```js
+let triangleNumber = function(nums) {
+    if(!nums || nums.length < 3) return 0
+    let count = 0
+    // 排序
+    nums.sort((a, b) => a - b) 
+    for(let k = nums.length - 1; k > 1; k--){
+        let i = 0, j = k - 1
+        while(i < j){ 
+            if(nums[i] + nums[j] > nums[k]){
+                count += j - i
+                j--
+            } else {
+                i++
+            }
+        }
+    }       
+    return count
+}
+```
+#### 复杂度
+- **时间复杂度**：`O(n^2^)`
+- **空间复杂度**：`O(n)`
+
+关于 `Array.prototype.sort()` ，ES 规范并没有指定具体的算法，在 V8 引擎中， 7.0 版本之前，数组长度小于10时， `Array.prototype.sort()` 使用的是插入排序，否则用快速排序。
+
+在 V8 引擎 7.0 版本之后就舍弃了快速排序，因为它不是稳定的排序算法，在最坏情况下，时间复杂度会降级到 `O(n2)`。
+
+而是采用了一种混合排序的算法：**TimSort** 。
+
+这种功能算法最初用于Python语言中，严格地说它不属于以上10种排序算法中的任何一种，属于一种混合排序算法：
+
+在数据量小的子数组中使用插入排序，然后再使用归并排序将有序的子数组进行合并排序，时间复杂度为 `O(nlogn)`。
+![三角形](./../../.vuepress/public/sort-triangle.png)
