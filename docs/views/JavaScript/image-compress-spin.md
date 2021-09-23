@@ -2,7 +2,7 @@
 author: sanmzh
 title: 图片上传 压缩和旋转
 categories: [JavaScript]
-tags: [js]
+tags: [js, utilsFn]
 date: 2021-09-23 15:09:11
 ---
 
