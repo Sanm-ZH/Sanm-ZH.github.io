@@ -140,3 +140,20 @@ Promise.race([p5, p6]).then(function(value) {
 ```
 
 ps: `async` 可能会出现错误，但是可以通过 `Promise.catch` 进行捕获
+
+### 一种优雅处理 `async` 错误的方式
+```js
+export default function handle(promise){
+  return promise.then(res=>{
+    return res
+  }).catch(err=>{
+    return err
+  })
+}
+
+async getxxx(){
+    const {err, res} = await handle(this.$http.post(url, params))
+    if(err) console.log(err)
+    console.log(res)
+}
+```
