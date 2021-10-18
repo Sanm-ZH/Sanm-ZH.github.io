@@ -36,7 +36,52 @@ const {a: a1} = obj
 console.log(a1) // 1
 
 ```
-**注意**：使用解构时，对象不能为 `undefined`、`null`，否则会报错
+**注意**：使用解构时，对象不能为 `undefined`、`null`，否则会报错，所以在被解构对象一个默认值
 ```js
 const {a,b,c,d} = obj || {}
+```
+
+### 合并数据
+合并数组、对象
+```js
+const a = [1, 2, 3]
+const b = [2, 4, 6]
+const c = a.concat(b) // [1,2,3,2,4,6]
+
+// es6
+console.log([...a, ...b]) // [1,2,3,2,4,6]
+
+const obj1 = {a: 1}
+const obj2 = {b: 2}
+const obj3 = Object.assign({}, obj1, obj2) // {a: 1, b: 2}
+
+// es6
+console.log({...obj1, ...obj2}) // {a: 1, b: 2}
+```
+
+### 拼接字符串
+```js
+const name = '张三'
+const score = 66
+
+if(score < 60) {
+  console.log(`${name}成绩不及格`)
+} else {
+  console.log(`${name}成绩及格`)
+}
+
+// 在模板字符串中其实是可以进行运算的
+console.log(`${name}成绩${score < 60 ? '不及格' : '及格'}`)
+```
+
+### if 判断条件
+```js
+if(type === 1 || type === 2 || type === 3) {
+  // xxxxx
+}
+
+const conditionArr = [1, 2, 3]
+if(conditionArr.includes(type)) {
+  // xxxxx
+}
 ```
