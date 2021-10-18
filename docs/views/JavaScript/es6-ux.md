@@ -85,3 +85,110 @@ if(conditionArr.includes(type)) {
   // xxxxx
 }
 ```
+
+### 列表搜索
+```js
+const a = [{id: 1, name: 'a'}, {id: 2, name: 'b'}, {id: 3, name: 'c'}, {id: 4, name: 'a'}]
+const result = a.filter(item => item.id === 3) // [{id: 3, name: 'c'}]
+
+// 如果是想过滤出唯一项的内容时可以使用 find，找到符合条件的项，就不会自动继续变量查找
+const result1 = a.find(item => item.id === 3) // {id: 3, name: 'c'}
+```
+
+### 扁平化数组
+```js
+const deps = [
+  '行政部': [1, 2, 3],
+  '人事部': [4, 5, 6],
+  '销售部': [7, 8, 9]
+]
+let member = [];
+for (let item in deps){
+    const value = deps[item];
+    if(Array.isArray(value)){
+        member = [...member,...value]
+    }
+}
+member = [...new Set(member)]
+
+// es6
+member = Object.values(deps).flat(Infinity)
+// 使用Infinity作为flat的参数，使得无需知道被扁平化的数组的维度
+```
+
+### 获取对象属性值
+```js
+const name = userObj && userObj.name
+
+// 可选链操作符
+name = userObj?.name
+```
+
+### 添加对象属性
+```js
+const topicObj = {}
+const index = 1
+let key = `title${index}`
+topicObj[key] = '题干'
+
+// es6
+topicObj[`title${index}`] = '题干'
+```
+
+### 非空的判断
+```js
+if(value !== null && value !== undefined && value !== ''){
+  // xxxx
+}
+
+// es6+
+if(value??'' !== '') {
+  // xxxx
+}
+```
+
+### 异步函数
+```js
+const fn1 = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(1)
+    })
+  })
+}
+
+const fn2 = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(2)
+    })
+  })
+}
+
+const result1 = () => {
+  fn1().then(res1 => {
+    console.log(res1) // 1
+    fn2().then(res2 => {
+      console.log(res2) // 2
+    })
+  })
+}
+
+// es6 async await
+const result2 = async () => {
+  const res1 = await fn1()
+  const res2 = await fn2()
+  console.log(res1)
+  console.log(res2)
+}
+
+// 并发请求时可使用 Promise.all
+const result3 = () => {
+  Promise.all([fn1(), fn2()]).then(res => {
+    console.log(res) // [1, 2]
+  })
+}
+
+// 如果并发请求时，只要其中一个异步函数处理完成，就返回结果，使用如下
+Promise.race()
+```
