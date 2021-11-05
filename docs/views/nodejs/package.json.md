@@ -84,3 +84,62 @@ description字段用来描述这个项目包，它是一个字符串，可以让
 ### keywords
 keywords字段是一个字符串数组，表示这个项目包的关键词。和description一样，都是用来增加项目包的曝光率的。
 
+### author
+author顾名思义就是作者，表示该项目包的作者。它有两种形式，一种是字符串格式：
+```js
+"author": "sanmzh <zhxpvip7@gmail.com> (https://github.com/sanm-zh)"
+```
+对象形式：
+```js
+"author": {
+  "name" : "sanmzh",
+  "email" : "zhxpvip7@gmail.com",
+  "url" : "https://github.com/sanm-zh"
+}
+```
+### contributors
+contributors表示该项目包的贡献者，和author不同的是，该字段是一个数组：
+```js
+"contributors": [
+  "sanmzh1 <zhxpvip7@gmail.com> (https://github.com/sanm-zh)",
+  "sanmzh2 <zhxpvip7@gmail.com> (https://github.com/sanm-zh)"
+ ]
+```
+```js
+"contributors": [
+  {
+  	"name" : "sanmzh1",
+  	"email" : "zhxpvip7@gmail.com",
+  	"url" : "https://github.com/sanm-zh"
+	},
+  {
+  	"name" : "sanmzh2",
+  	"email" : "zhxpvip7@gmail.com",
+  	"url" : "https://github.com/sanm-zh"
+	}
+ ]
+```
+### homepage
+homepage就是项目的主页地址了，它是一个字符串。
+### repository
+repository表示代码的存放仓库地址：
+```js
+"repository": "https://github.com/facebook/react.git"
+```
+除此之外，还可以显式地设置版本控制系统：
+```js
+"repository": {
+  "type": "git",
+  "url": "https://github.com/facebook/react.git"
+}
+```
+### bugs
+bugs表示项目提交问题的地址，该字段是一个对象，可以添加一个提交问题的地址和反馈的邮箱：
+```js
+"bugs": { 
+  "url" : "https://github.com/facebook/react/issues",
+  "email" : "xxxxx@xx.com"
+}
+```
+最常见的bugs就是Github中的issues页面，如上就是react的issues页面地址。
+
