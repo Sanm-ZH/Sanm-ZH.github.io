@@ -141,5 +141,55 @@ bugs表示项目提交问题的地址，该字段是一个对象，可以添加�
   "email" : "xxxxx@xx.com"
 }
 ```
-最常见的bugs就是Github中的issues页面，如上就是react的issues页面地址。
+最常见的 `bugs` 就是 `github` 中的 `issues` 页面，如上就是 `react` 的 `issues` 页面地址。
 
+## 依赖配置
+### dependencies
+`dependencies` 字段中声明的是项目的生产环境中所必须的依赖包。
+
+需要注意，不要把测试或者过渡性的依赖放在dependencies，避免生产环境出现意外的问题。
+
+### devDependencies
+devDependencies中声明的是开发阶段需要的依赖包，如`Webpack`、`Eslint`、`Babel`等，用于辅助开发。它们不同于 `dependencies`，因为它们只需安装在开发设备上，而无需在生产环境中运行代码。当打包上线时并不需要这些包，所以可以把这些依赖添加到 `devDependencies` 中，这些依赖依然会在本地指定 `npm install` 时被安装和管理，但是不会被安装到生产环境中。
+
+```bash
+npm i --save-dev <PACKAGENAME>
+# or
+npm i -D <PACKAGENAME>
+```
+
+### peerDependencies
+有些情况下，我们的项目和所依赖的模块，都会同时依赖另一个模块，但是所依赖的版本不一样。比如，我们的项目依赖A模块和B模块的1.0版，而A模块本身又依赖B模块的2.0版。大多数情况下，这不是问题，B模块的两个版本可以并存，同时运行。但是，有一种情况，会出现问题，就是这种依赖关系将暴露给用户。
+
+最典型的场景就是插件，比如A模块是B模块的插件。用户安装的B模块是1.0版本，但是A插件只能和2.0版本的B模块一起使用。这时，用户要是将1.0版本的B的实例传给A，就会出现问题。因此，需要一种机制，在模板安装的时候提醒用户，如果A和B一起安装，那么B必须是2.0模块。
+`peerDependencies` 字段就是用来供插件指定其所需要的主工具的版本。
+
+```js
+"name": "chai-as-promised",
+"peerDependencies": {
+   "chai": "1.x"
+}
+```
+上面代码指定在安装chai-as-promised模块时，主程序chai必须一起安装，而且chai的版本必须是1.x。如果项目指定的依赖是chai的2.0版本，就会报错。
+需要注意，从`npm 3.0`版开始，`peerDependencies`不再会默认安装了。
+
+### optionalDependencies
+如果需要在找不到包或者安装包失败时，`npm`仍然能够继续运行，则可以将该包放在`optionalDependencies`对象中，`optionalDependencies`对象中的包会覆盖`dependencies`中同名的包，所以只需在一个地方进行设置即可。
+
+需要注意，由于`optionalDependencies`中的依赖可能并为安装成功，所以一定要做异常处理，否则当获取这个依赖时，如果获取不到就会报错。
+
+### bundledDependencies
+上面的几个依赖相关的配置项都是一个对象，而`bundledDependencies`配置项是一个数组，数组里可以指定一些模块，这些模块将在这个包发布时被一起打包。
+
+需要注意，这个字段数组中的值必须是在`dependencies`, `devDependencies`两个里面声明过的包才行。
+
+### engines
+当我们维护一些旧项目时，可能对npm包的版本或者Node版本有特殊要求，如果不满足条件就可能无法将项目跑起来。为了让项目开箱即用，可以在engines字段中说明具体的版本号：
+```js
+"engines": {
+  "node": ">=8.10.3 <12.13.0",
+  "npm": ">=6.9.0"
+}
+```
+
+需要注意，`engines` 只是起一个说明的作用，即使用户安装的版本不符合要求，也不影响依赖包的安装。
