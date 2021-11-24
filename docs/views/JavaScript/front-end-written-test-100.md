@@ -111,7 +111,7 @@ D. console.log(false == '');  // true
 A. console.log("12" === 12) // false
 B. console.log (NaN === NaN)  // false
 C. console.log (typeof(null) === typeof(window))  // "object" === "object"
-D. console.log ([1,2,3] === [1,2,3])  // true
+D. console.log ([1,2,3] === [1,2,3])  // false
 
 // C
 ```
