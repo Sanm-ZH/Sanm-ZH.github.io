@@ -56,3 +56,71 @@ D. BigInt是可以表示任意精度整数的基本数据类型，存储于栈(s
 
 // C
 ```
+#### 逻辑判断
+- 请选择结果为 `ture` 的表达式？
+```js
+A. null instanceof Object // false
+B. null === undefined // false
+C. null == undefined  // true
+D. NaN == NaN // false
+
+// C
+```
+- 下列代码结果为 `true` 的是？
+```js
+A. Symbol.for('a') === Symbol.for('a')  // true
+B. Symbol('a') === Symbol('a')  // false
+C. NaN === NaN  // false
+D. {} === {}  // false
+
+// A
+```
+
+- 下列代码结果为 `true` 的是？
+```js
+var a = 1;
+var b = [];
+var c = '';
+var d = true;
+
+A. (a || b) === true  // (a || b) => 1
+B. (b && c) === true  // (b && c) => ''
+C. (c && d) === true  // '' && true
+D. (d || a) === true  // true || 1
+
+// D
+```
+- `1 == true` 的返回值是 `true`，这句话是否正确？
+```js
+A. T
+B. F
+
+// A
+```
+- 下面代码输出为 `true` 的是?
+```js
+A. console.log([] === []);  // false 引用对象
+B. console.log(undefined == 0); // false
+C. console.log(undefined == false); // false
+D. console.log(false == '');  // true
+
+// D
+```
+- 浏览器环境下，以下打印结果为`true`的是?
+```js
+A. console.log("12" === 12) // false
+B. console.log (NaN === NaN)  // false
+C. console.log (typeof(null) === typeof(window))  // "object" === "object"
+D. console.log ([1,2,3] === [1,2,3])  // true
+
+// C
+```
+- 以下表达式，正确的是?
+```js
+A. Number('a') == Number('a') // NaN == NaN
+B. -1 == true // false
+C. 3 + '2' === 5  // '32' === 5
+D. ![] == '' 
+
+// D
+```
