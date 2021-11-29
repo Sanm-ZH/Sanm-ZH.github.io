@@ -121,6 +121,37 @@ A. Number('a') == Number('a') // NaN == NaN
 B. -1 == true // false
 C. 3 + '2' === 5  // '32' === 5
 D. ![] == '' 
+// TODO: ![] == '' 还需了解
 
 // D
+```
+
+### Math
+- 如何把 `7.25` 四舍五入为最接近的整数？
+```js
+A. Math.round(7.25) // round 四色五入
+B. Math.ceil(7.25)  // 向上取整
+C. round(7.25)  // round不存在该方法
+D. Math.rnd(7.25) // 拼写错误
+
+// A
+```
+
+- 下面哪个选项可以产生 `0 <= num <= 10` 的随机整数？
+```js
+A. Math.floor(Math.random()*6)
+B. Math.floor(Math.random()*10)
+C. Math.floor(Math.random()*11)
+D. Math.ceil(Math.random()*10)
+
+// C || D   B选项结果不能到10
+```
+
+- 以下 `( )` 表达式产生一个 `0~7` 之间 `(含0,7)` 的随机整数？
+```js
+A. Math.floor(Math.random()*6)
+B. Math.floor(Math.random()*7)
+C. Math.floor(Math.random()*8)
+
+// C
 ```
