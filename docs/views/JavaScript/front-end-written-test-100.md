@@ -144,7 +144,7 @@ B. Math.floor(Math.random()*10)
 C. Math.floor(Math.random()*11)
 D. Math.ceil(Math.random()*10)
 
-// C || D   B选项结果不能到10
+// CD   B选项结果不能到10
 ```
 
 - 以下 `( )` 表达式产生一个 `0~7` 之间 `(含0,7)` 的随机整数？
@@ -152,6 +152,54 @@ D. Math.ceil(Math.random()*10)
 A. Math.floor(Math.random()*6)
 B. Math.floor(Math.random()*7)
 C. Math.floor(Math.random()*8)
+
+// C
+```
+
+### 字符串
+- `split()` 方法用于把一个字符串分割成字符串数组。
+```js
+A. T
+B. F
+
+// A
+```
+
+- `String` 对象的哪个方法可以寻找子字符串并返回该子字符串位置
+```js
+A. match()
+B. indexOf()
+C. search()
+D. concat()
+
+// BC
+```
+
+### JSON
+- 下面哪一个是JSON数据？
+```js
+A. {"name":"xiaoming",age,"student"}
+B. {"name":"xiaoming","age":"student"}
+C. {"xiaoming","student"}
+D. ["xiaoming","student"]
+
+// B
+```
+
+- 下面分别使用 `JSON.stringify` 方法，返回值 `res` 分别是？
+```js
+const fn = function(){}
+const res = JSON.stringify(fn)
+const num = 123
+const res = JSON.stringify(num)
+const res = JSON.stringify(NaN)
+const b = true
+const res = JSON.stringify(b)
+
+A. 'function'、'123'、'NaN'、'true'
+B. undefined、'123'、undefined、'true'
+C. undefined、'123'、'null'、'true'
+D. undefined、'123'、'null'、undefined
 
 // C
 ```
