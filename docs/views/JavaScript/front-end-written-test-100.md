@@ -203,3 +203,95 @@ D. undefined、'123'、'null'、undefined
 
 // C
 ```
+
+### Array
+- js数组中不会改变原有数组的方法是？
+```js
+A. push // 直接在末尾添加
+B. concat // 连接两个数组后生成新数组并返回
+C. sort // 对原数组进行排序操作
+D. shift  // 移除数组第一项 移除最后一项 pop 方法 第一项前面添加元素 unshift
+
+// B
+```
+- 下列哪种数组的方法不会修改数组本身?
+```js
+A. slice  // 返回一个新数组 begin end 不包括 end，对之间的元素进行浅拷贝
+B. splice // 方法向/从数组添加/删除项目，并返回删除的项目，会改变原数组
+C. sort // 排序
+D. unshift  // 第一项前面添加元素 改变数组本身
+
+// A
+```
+- JavaScript中需要往数组末尾处添加一个元素，应该使用以下哪个方法?
+```js
+A. push // 末尾添加
+B. pop  // 删除末尾
+C. shift  // 删除开头
+D. unshift  // 添加开头
+
+// A
+```
+- 以下js操作Array的方法中不能添加元素的是?
+```js
+A. push // 末尾添加
+B. pop  // 删除末尾
+C. unshift  // 添加开头
+D. splice // 删除，添加
+
+// B
+```
+数组以下哪个方法会影响原数组？
+```js
+A. concat // 生成新数组
+B. splice // 删除原数组
+C. slice  // 生成新数组
+D. join //  生成新数组
+
+// B
+```
+- JavaScript中，下列哪一个Array的方法的返回值类型和其他不同
+```js
+A. concat // 返回新数组
+B. shift  // 返回删除元素
+C. filter // 返回符合条件新数组
+D. map  // 返回数组
+
+// B
+```
+- 如下的Array.prototype上的方法中，那个方法不会改变原有的数组？
+```js
+A. push
+B. slice
+C. splice
+D. sort
+
+// B
+```
+- 对于一个数字组成的数组 nums，现在需要执行在不改动 nums 的基础上去重操作，返回一个新的无重复元素的数组，以下几段代码能完成这一操作的是?
+```js
+// (1)
+const newNums = Array.from(new Set(nums))
+
+// (2)
+const newNums = nums.filter((n, i) => {
+    return nums.indexOf(n) === i
+})
+
+// (3)
+const newNums = nums.forEach((n, i) => {
+    return nums.indexOf(n) === i
+})
+
+// (4)
+const newNums = nums.reduce((acc, n, i) => {
+    return [].concat(acc, nums.indexOf(n) === i ? n : [])
+})
+
+A. (1)、(2)、(3)、(4)
+B. (1)、(3)、(4)
+C. (1)、(2)、(4)
+D. (1)、(4)
+
+// C
+```
