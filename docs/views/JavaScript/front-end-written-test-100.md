@@ -295,3 +295,32 @@ D. (1)、(4)
 
 // C
 ```
+
+### 正则
+- 正则表达式 `/^d+[^d]+/` 能匹配下列哪个字符串？
+```js
+A. 123
+B. 123a
+C. d123
+D. 123def
+
+// C
+```
+- 下面哪个不是RegExp对象的方法?
+```js
+A. test
+B. match
+C. exec
+D. compile
+
+// B
+```
+- 以下哪项可以去除变量str中的所有空格？
+```js
+A. str.replace(`/\s*/g,""`)
+B. str.replace(`/^\s|\s$/g,""`)
+C. str.replace(`/^\s*/, ""`)
+D. str.replace(`/(\s*$)/g, ""`)
+
+// A
+```
