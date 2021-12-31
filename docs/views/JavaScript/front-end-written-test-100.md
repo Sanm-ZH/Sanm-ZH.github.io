@@ -324,3 +324,81 @@ D. str.replace(`/(\s*$)/g, ""`)
 
 // A
 ```
+
+### 其他
+- 下列函数哪个不是JavaScript的全局函数
+```js
+A. encodeURI
+B. parseFloat
+C. round
+D. eval
+
+// C
+```
+
+- 编写高性能JavaScript，以下描述错误的是
+```js
+A. 遵循严格模式："use strict"
+B. 将js脚本放在页面顶部，加快渲染页面
+C. 将js脚本成组打包，减少请求，尽量减少使用闭包
+D. 使用非阻塞方式下载js脚本，最小化重绘(repaint)和回流(reflow)
+
+// B
+```
+
+- 有关JavaScript中系统方法的描述，错误的是？
+```js
+A. parseFloat方法：该方法将一个字符串转换成对应的小数
+B. isNaN方法：该方法用于检测参数是否为数值型，如果是，返回true，否则，返回false。   // isNaN 是不是数值型
+C. escape方法： 该方法返回对一个字符串编码后的结果字符串
+D. eval方法：该方法将某个参数字符串作为一个JavaScript执行题
+
+// B
+```
+
+- 下面列出的浏览器，无webkit内核的是()
+```js
+A. chrome
+B. Safari
+C. 搜狗浏览器
+D. Firefox
+
+// D
+```
+
+- 下列代码哪个能够实现获取形式为 2017-08-01 形式的日期( )
+```js
+// A
+var formatDate=getDate()
+// B
+var formatDate = new Date()
+// C
+var formatDate = function (date) {
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    
+    var d = date.getDate();
+    return y + '-' + m + '-' + d;
+};
+// D
+var formatDate = function (date) {
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    m = m < 10 ? '0' + m : m;
+    var d = date.getDate();
+    d = d < 10 ? ('0' + d) : d;
+    return y + '-' + m + '-' + d;
+};
+
+// D
+```
+
+- 下面哪一项不能最小化重绘(repaint)和回流(reflow)
+```js
+A. 需要对元素进行复杂的操作时，可以先隐藏(display:"none")，操作完成后再显示
+B. 需要创建多个DOM节点时，使用DocumentFragment创建完后一次性的加入document
+C. 尽量避免用table布局(table元素一旦触发回流就会导致table里所有的其它元素回流)
+D. 尽量不要使用 css 属性简写，如：用border-width, border-style, border-color代替border
+
+// D
+```
