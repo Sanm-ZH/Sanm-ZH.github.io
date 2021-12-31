@@ -402,3 +402,88 @@ D. 尽量不要使用 css 属性简写，如：用border-width, border-style, bo
 
 // D
 ```
+
+### JS深入
+- 下列哪种方法不能改变this指向
+```js
+A. eval
+B. apply
+C. bind
+D. call
+
+// A
+```
+
+- 在JavaScript中下面选项关于this描述正确的是
+```js
+A. 在使用new实例化对象时, this指向这个实例对象
+B. 将对象的方法赋值给变量A。执行A()时 该方法中的this指向这个对象。 
+C. 在函数定义时,this指向全局变量
+D. 在浏览器下的全局范围内，this指向全局对象
+
+// A
+```
+
+- 下面有关JavaScript中call和apply方法的描述，错误的是？
+```js
+A. call与apply都属于Function.prototype的一个方法，所以每个function实例都有call、apply属性
+B. 两者传递的参数不同，call函数第一个参数都是要传入给当前对象的对象，apply不是
+C. apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入
+D. call传入的则是直接的参数列表。call 方法可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。
+
+// B
+```
+
+### 作用域（闭包）
+- 内存泄漏是 javascript 代码中必须尽量避免的，以下几段代码可能会引起内存泄漏的有
+```js
+// (1)
+function getName() {
+    name = 'javascript'
+}
+getName()
+
+// (2)
+const elements = {
+    button: document.getElementById('button')
+};
+function removeButton() {
+    document.body.removeChild(elements.button);
+}
+removeButton()
+
+// (3)
+let timer = setInterval(() => {
+    const node = document.querySelector('#node') 
+    if(node) {
+        clearInterval(timer)
+    }
+}, 1000);
+
+A. (1)、(2)、(3)
+B. (2)、(3)
+C. (1)、(3)
+D. (1)、(2)
+
+// D
+```
+
+- 那个操作不会造成内存泄露
+```js
+A. 没有清理的DOM元素引用
+B. 被遗忘的定时器
+C. 事件侦听没有移除
+D. 局部变量不用时，没有设为null
+
+// D
+```
+
+- 下列关于闭包理解错误的是
+```js
+A. 增加一定的内存消耗
+B. 使用不当可能会导致内存泄漏
+C. 可以使用闭包模拟私有方法
+D. 闭包会改动对象的原型链
+
+// D
+```
