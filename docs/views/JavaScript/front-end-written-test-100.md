@@ -504,7 +504,7 @@ D. 关联继承
 A. T
 B. F
 
-// B
+// B    Object.create(null)
 ```
 
 - 以下关于原型链的描述正确的是
