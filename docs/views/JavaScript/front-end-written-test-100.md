@@ -516,3 +516,137 @@ D. 所有 JavaScript 中的对象都是位于原型链顶端的 `Object` 的实�
 
 // C
 ```
+
+### 存储
+- 以下不属于前端数据存储方式的是？
+```js
+A. jsonp
+B. cookie
+C. localStorage
+D. sessionStorage
+
+// A
+```
+
+### DOM题
+- 将A元素拖拽并放置到B元素中，B元素需要做哪项操作
+```js
+A. event.preventDefault()
+B. event.prevent()
+C. event.drag()
+D. event.drop()
+
+// A
+```
+
+- 以下不支持冒泡的鼠标事件为
+```js
+A. mouseover
+B. click
+C. mouseleave
+D. mousemove
+
+// C
+```
+
+- 在javascript中，用于阻止默认事件的默认操作的方法是
+```js
+A. stopDeafault()
+B. stopPropagation()
+C. preventDefault()
+D. preventDefaultEven()
+
+// C
+```
+
+- 事件传播的三个阶段是什么
+```js
+A. 目标 -> 捕获 -> 冒泡
+B. 冒泡 -> 目标 -> 捕获
+C. 目标 -> 冒泡 -> 捕获
+D. 捕获 -> 目标 -> 冒泡
+
+// D
+```
+
+- 下面有关 javascript 常见事件的触发情况，描述错误的是？
+```js
+A. onchange：用户改变域的内容
+B. onkeypress：某个键盘的键被按下或按住
+C. onmousedown：某个鼠标按键被按下
+D. onblur：元素获得焦点
+
+// D
+```
+
+### DOM遍历
+- 下列哪项不属于DOM查找节点的属性？
+```js
+A. parentObj.firstChild
+B. parentObj.children
+C. neborNode.previousSibling
+D. neborNode.siblings
+
+// D
+```
+
+- DOM中，给父节点添加子节点的正确方法为？
+```js
+A. appendChild(parentNode,newNode);
+B. append(parentNode,newNode);
+C. parentNode.append(newNode);  // js 中该方法为试用，存在兼容问题
+D. parentNode.appendChild(newNode);
+
+// D
+```
+
+- JavaScript中document.getElementById()返回值的类型为？
+```js
+A. Array
+B. Object
+C. String
+D. Function
+
+// B
+```
+
+- DOM元素的以下属性改变会导致重排(reflows)的是
+```js
+A. outline
+B. visiblity
+C. font-size
+D. background-color
+
+// C
+```
+
+### BOM题
+- setInterval(updateClock, 60)的意思是？
+```js
+A. 每隔60秒调用一次updateClock()
+B. 每隔60毫秒调用一次updateClock()
+C. 每隔60分钟调用一次updateClock()
+D. 每分钟调用60次updateClock()
+
+// B
+```
+
+- 使用方法()可以获取到地理位置所在的经纬度？
+```js
+A. Geolocation.watchPosition()
+B. Geolocation.getCurrentPosition()
+C. Geolocation.getPosition()
+D. Geolocation.Position()
+
+// B
+```
+
+- setInterval(alert('welcome'), 1000)这段代码的意思是？
+```js
+A. 等待1000秒后，再弹出一个对话框
+B. 等待1秒钟后弹出一个对话框
+C. 每隔一秒钟弹出一个对话框
+D. 语句报错,语法有问题
+
+// C
+```
