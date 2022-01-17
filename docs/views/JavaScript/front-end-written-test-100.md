@@ -10,7 +10,7 @@ date: 2021-11-23 16:58:32
 
 ## 单选题
 ### JS基础
-#### js概念与类型检测
+### js概念与类型检测
 - 以下不属于 `typeof` 运算符返回值的是？
 ```js
 A. "string"
@@ -56,7 +56,7 @@ D. BigInt是可以表示任意精度整数的基本数据类型，存储于栈(s
 
 // C
 ```
-#### 逻辑判断
+### 逻辑判断
 - 请选择结果为 `ture` 的表达式？
 ```js
 A. null instanceof Object // false
@@ -649,4 +649,161 @@ C. 每隔一秒钟弹出一个对话框
 D. 语句报错,语法有问题
 
 // C
+```
+
+### ES6题
+### 箭头函数
+- 下列对js箭头函数描述错误的是
+```js
+A. 箭头函数没有原型属性
+B. 箭头函数不绑定this，会捕获其所在的上下文的this值，作为自己的this值
+C. 箭头函数可以作为构造函数，使用new
+D. 箭头函数不绑定arguments，取而代之用rest参数解决
+
+// C
+```
+
+- 关于箭头函数下列说法错误的一项是：
+```js
+A. 函数体内this的指向是定义时所在的对象，而不是使用时所在的对象
+B. 箭头函数内不能使用arguments对象
+C. 箭头函数不能使用yield命令
+D. 可以使用new创建一个箭头函数的实例
+
+// D
+```
+
+### promise
+- 关于将 Promise.all 和 Promise.race 传入空数组的两段代码的输出结果说法正确的是：
+```js
+Promise.all([]).then((res) => {
+    console.log('all');
+});
+Promise.race([]).then((res) => {
+    console.log('race');
+});
+
+A. all 和 race 都会被输出
+B. all 和 race 都不会被输出
+C. all 会被输出，而 race 不会被输出
+D. all 不会被输出，race 会被输出
+
+// C
+```
+
+- 以下方案中，不是用于解决回调陷阱的的是：
+```js
+A. Promise
+B. Generator
+C. async
+D. Proxy
+
+// D
+```
+
+- 在 ECMAScript6 中，不属于promise的状态是:
+```js
+A. Pending
+B. Pause
+C. Fulfilled
+D. Rejected
+
+// B
+```
+
+### 解构赋值
+- 关于ES6解构表达式,描述正确的是
+```js
+let [a,b, c,d, e] = "hello"; 
+
+A. e = "hello";
+B. 其它都为undefined
+C. 当中 a = "h", b = "e";
+D. 语法报错
+
+// C
+```
+
+## 多选题
+### JS基础
+- 下面哪些数组方法会改变原数组
+```js
+A. push 
+B. concat 
+C. splice 
+D. map
+
+// AC
+```
+
+- 下面可以声明数字的js代码是
+```js
+A. const a = 0xa1
+B. const a = 076
+C. const a = 0b21
+D. const a = 7e2
+
+// ABD
+```
+
+以下属于操作符 typeof 的返回值的是：
+```js
+(1) function
+(2) object
+(3) null
+(4) array
+(5) NaN
+(6) bigint
+(7) regexp
+(8) undefined
+
+A. (1)、(2)、(3)、(4)、(5)、(6)、(7)、(8)
+B. (1)、(2)、(3)、(8)
+C. (1)、(2)、(8)
+D. (1)、(2)、(6)、(8)
+
+// D
+```
+
+- 以下结果等于字符串string
+```js
+A. typeof 'string'
+B. String('string').toString()
+C. 'string'.split('').sort().join('')
+D. (function(string){return string})('string')
+E. JSON.parse('{"string":"string"}').string
+
+// ABDE
+```
+
+- 下面的等式成立的是?
+```js
+A. parseInt(46.8) `==` parseFloat(46.8)
+B. NaN `!==` NaN
+C. isNaN('abc') `==` NaN
+D. typeof NaN `===` 'number'
+
+// BD
+```
+
+- 以下哪些选项可以将集合A转化为数组？
+```js
+A. Array.from(A)
+B. [].slice.apply(A)
+C. [...A]
+D. [].map.call(A, o => o)
+
+// ABCD
+```
+
+- 下列结果返回 true 的是
+```js
+A. null == undefined
+B. null === undefined
+C. null === null
+D. NaN == null
+E. NaN === NaN
+F. Infinity + 1 !== Infinity
+
+// AC
 ```
