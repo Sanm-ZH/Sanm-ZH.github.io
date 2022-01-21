@@ -19,22 +19,22 @@ date: 2022-01-21 13:51:29
 下面已`ajax`举例，`axios`、`fetch`，同理，设置`responseType`
 ```js
 $.ajax({
-        type: 'get',
-        url: 'xxxxx',
-        headers: {
-            Authorization: getCookie('token')
-        },
-        xhrFields: { responseType: 'blob' },
-        success: function (blob) {
-            var eleLink = document.createElement('a');
-            eleLink.download = 'xxxx.zip';  // 文件名带上最好带上格式
-            eleLink.style.display = 'none';
-            eleLink.href = URL.createObjectURL(blob);
-            // 触发点击
-            document.body.appendChild(eleLink);
-            eleLink.click();
-            // 然后移除
-            document.body.removeChild(eleLink);
-        }
-    });
+    type: 'get',
+    url: 'xxxxx',
+    headers: {
+        Authorization: getCookie('token')
+    },
+    xhrFields: { responseType: 'blob' },
+    success: function (blob) {
+        var eleLink = document.createElement('a');
+        eleLink.download = 'xxxx.zip';  // 文件名带上最好带上格式
+        eleLink.style.display = 'none';
+        eleLink.href = URL.createObjectURL(blob);
+        // 触发点击
+        document.body.appendChild(eleLink);
+        eleLink.click();
+        // 然后移除
+        document.body.removeChild(eleLink);
+    }
+});
 ```
