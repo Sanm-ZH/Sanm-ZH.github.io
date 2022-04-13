@@ -49,3 +49,36 @@ for(const key in map) {
   result.push(map[key]);
 }
 ```
+
+## 树结构改为平铺结构
+```js
+const tree = {
+  a: {
+    b: 1,
+    c: {
+      d: '123'
+    }
+  },
+  e: '456'
+}
+// 结果
+const outInput = {
+  'a.b': 1,
+  'a.b.c.d': '123',
+  'a.e': '456'
+};
+
+// 方法1：递归
+function flatTree(tree, prevKey = '', result = {}) {
+  for(const key in tree) {
+    if(obj.hasOwnProperty(key)) {
+      var newKey = `${prevKey}${key}`;
+      if(typeof tree[key] === 'object') {
+        flatTree(tree[key], `${prevKey}.`, result);
+      } else {
+        result[newKey] = tree[key];
+      }
+    }
+  }
+}
+```
