@@ -82,3 +82,28 @@ function flatTree(tree, prevKey = '', result = {}) {
   }
 }
 ```
+
+## for循环splice的坑
+```js
+const arr = ['a', 'a', 'a', 'b', 'c', 'd', 'e', 'f']
+for(let i = 0; i < arr.length; i++) {
+  if(arr[i] === 'a') {
+    arr.splice(i, 1);
+    // i--; 解解方法一
+  }
+}
+
+// 索引问题，长度变化了
+// arr = ['a', 'b', 'c', 'd', 'e', 'f']
+// i--
+
+// for in 无法解决
+
+// 采用倒序
+const arr = ['a', 'a', 'a', 'b', 'c', 'd', 'e', 'f']
+for(let i = arr.length - 1; i > 0; i--) {
+  if(arr[i] === 'a') {
+    arr.splice(i, 1);
+  }
+}
+```
