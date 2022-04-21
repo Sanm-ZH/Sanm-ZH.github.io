@@ -107,3 +107,46 @@ for(let i = arr.length - 1; i > 0; i--) {
   }
 }
 ```
+
+## this指向问题
+```js
+var name = 'sanmzh';
+
+var person1 = {
+  name: 'person1',
+  show1: function() {
+    console.log(this.name);
+  },
+  show2: () => console.log(this.name),
+  show3: function() {
+    return function() {
+      console.log(this);
+    };
+  },
+  show4: function() {
+    return () => console.log(this.name);
+  }
+};
+
+var person2 = { name: 'person2' };
+
+person1.show1(); // this -> person1 => person1
+person1.show1.call(person2); // this -> person2 => person2
+
+person1.show2(); // this -> window => sanmzh
+person1.show2.call(person2); // this -> window => sanmzh
+
+person1.show3()();
+// fn = person1.show3() -> this -> window; window.fn() -> this => window => sanmzh
+person1.show3().call(person2);
+// fn = person1.show3() -> this -> window; window.fn.call(person2) -> this => person2 => person2
+person1.show3.call(person2)();
+// fn = person1.show3.call(person2) -> this -> person2; window.fn() -> this => window => sanmzh
+
+person1.show4()();
+// fn = person1.show4() -> this -> person1; person1.fn() -> this -> person1 => person1
+person1.show4().call(person2);
+// fn = person1.show4() -> this -> person1; person1.fn() -> this -> person1 => person1
+person1.show4.call(person2)();
+// fn = person1.show4.call(person2) -> this -> person2; person2.fn() -> this -> person2 => person2
+```
