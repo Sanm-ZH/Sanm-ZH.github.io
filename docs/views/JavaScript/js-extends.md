@@ -68,7 +68,11 @@ var stu1 = new Student()
 stu1.name = '张三'
 stu1.eats.push('苹果')
 stu1.getName() // => 张三
-stu1.getFn() // 报错，没有定义该方法，找不到原型上的方法
+// stu1.getFn() // 报错，没有定义该方法，找不到原型上的方法
+
+var stu2 = new Student()
+console.log(stu2)
+// 生成一份新的数据
 ```
 
 ## 组合继承
@@ -119,4 +123,31 @@ PersonPrototype.prototype = Person.prototype
 Student.prototype = new PersonPrototype()
 
 var stu1 = new Student()
+```
+
+# ES6类继承
+:::tip
+ES6新语法糖，原生支持
+:::
+
+```js
+class Person {
+  constructor(name = 'sanm', eats = ['香蕉']) {
+    this.name = 'sanm'
+    this.eats = ['香蕉']
+    this.getName = () => console.log(this.name)
+  }
+  getFn = () => console.log('Person.prototype 的方法')
+}
+
+class Student extends Person {
+  constructor(name, eats) {
+    // super Person.prototype.constructor.call(this)
+    super(name)
+    this.eats = eats
+  }
+}
+
+var stu1 = new Student()
+console.log(stu1)
 ```
