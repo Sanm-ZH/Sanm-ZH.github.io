@@ -8,7 +8,7 @@ date: 2022-04-26 15:33:17
 
 <Boxx changeTime="30000"/>
 
-# var/let/const 区别
+## var/let/const 区别
 1. **`var` 存在变量提升，而`let`和`const`没有（`let`和`const`存在暂时性死区）**
 ```js
 // 
@@ -66,7 +66,7 @@ a1.a = 3
 console.log(a1) // {a: 3}
 ```
 
-# 函数提升和变量提升
+## 函数提升和变量提升
 1. **变量提升**
 ```js
 console.log(a)  // undefined
@@ -85,7 +85,7 @@ function fn() {
   console.log(123)
 }
 ```
-### 常见题
+#### 常见题
 ```js
 // 题目1
 console.log(a)  // => undefined

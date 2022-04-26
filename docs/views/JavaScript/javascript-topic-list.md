@@ -125,6 +125,11 @@ var person1 = {
   },
   show4: function() {
     return () => console.log(this.name);
+  },
+  show5: () => {
+    return function() {
+      console.log(this.name);
+    }
   }
 };
 
@@ -137,9 +142,9 @@ person1.show2(); // this -> window => sanmzh
 person1.show2.call(person2); // this -> window => sanmzh
 
 person1.show3()();
-// fn = person1.show3() -> this -> window; window.fn() -> this => window => sanmzh
+// fn = person1.show3() -> this -> person1; window.fn() -> this => window => sanmzh
 person1.show3().call(person2);
-// fn = person1.show3() -> this -> window; window.fn.call(person2) -> this => person2 => person2
+// fn = person1.show3() -> this -> person1; window.fn.call(person2) -> this => person2 => person2
 person1.show3.call(person2)();
 // fn = person1.show3.call(person2) -> this -> person2; window.fn() -> this => window => sanmzh
 
