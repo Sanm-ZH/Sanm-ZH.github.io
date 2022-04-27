@@ -246,3 +246,70 @@ console.log(10)
 - 遇到`new Promise`直接执行，`then`中的方法直接放入微任务队列中
 - 遇到`setTimeout`放入宏任务队列中
 - 执行顺序：同步 --> 微任务(`promise then`) --> 宏任务(`setTimeout`)
+
+## this的指向问题
+:::tip
+1. 普通函数中，`this`是它的直接调用者，谁调用，`this`就指向谁
+2. 箭头函数，`this`指向跟外部作用域中`this`指向是同一个
+:::
+
+#### 常见题
+```js
+var a = 1;
+function fn1() {
+  var a = 2;
+  console.log(this.a + a)
+}
+function fn2() {
+  var a = 10;
+  fn1()
+}
+fn2()
+// 输出：3
+
+// fn1是直接运行，this指向全局
+
+var a = 1;
+var obj = {
+  a: 2,
+  fn1: function () {
+    console.log(this.a)
+  },
+  fn2: () => {
+    console.log(this.a)
+  }
+}
+obj.fn1()
+obj.fn2()
+
+// 输出：2 1
+
+// fn1普通函数，谁调用this指向谁
+// fn2箭头函数，和外部作用域是一样的，相当于全局
+
+const obj = {
+  name: '小明',
+  say() {
+    console.log(`你好！${this.name}`)
+  }
+}
+const func = obj.say;
+
+obj.say();
+func();
+setTimeout(obj.say, 100)
+setTimeout(func, 200)
+setTimeout(function () {
+  obj.say()
+}, 300)
+setTimeout(() => obj.say(), 400)
+
+// 输出：
+// 你好！小明
+// 你好！
+// 你好！
+// 你好！
+// 你好！小明
+// 你好！小明
+
+```
