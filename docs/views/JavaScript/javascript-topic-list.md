@@ -148,10 +148,18 @@ person1.show3().call(person2);
 person1.show3.call(person2)();
 // fn = person1.show3.call(person2) -> this -> person2; window.fn() -> this => window => sanmzh
 
+// 箭头函数this指向上级作用域this
 person1.show4()();
-// fn = person1.show4() -> this -> person1; person1.fn() -> this -> person1 => person1
+// fn = person1.show4() -> this -> person1; window.fn() -> this -> person1 => person1
 person1.show4().call(person2);
-// fn = person1.show4() -> this -> person1; person1.fn() -> this -> person1 => person1
+// fn = person1.show4() -> this -> person1; window.fn() -> this -> person1 => person1
 person1.show4.call(person2)();
-// fn = person1.show4.call(person2) -> this -> person2; person2.fn() -> this -> person2 => person2
+// fn = person1.show4.call(person2) -> this -> person2; window.fn() -> this -> person2 => person2
+
+person1.show5()();
+// fn = person1.show5() -> this -> window; window.fn() -> this -> window => sanm
+person1.show5().call(person2);
+// fn = person1.show5() -> this -> window; window.fn.call(person2) -> this -> person2 => person2
+person1.show5.call(person2)();
+// fn = person1.show5.call(person2) -> this -> window; window.fn() -> this -> window => sanm
 ```
