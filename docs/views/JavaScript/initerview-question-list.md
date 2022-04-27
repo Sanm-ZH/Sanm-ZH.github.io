@@ -152,3 +152,97 @@ fn4()
 
 // 当没有声明变量使用变量时，函数提升优先级会比 var 声明优先级更高
 ```
+
+## JS的运行机制
+1. **关于JavaScript**
+`JavaScript`是一门单线程语言，单线程就意味着，所有任务都要依次运行，前一个任务结束了才会执行下一个任务，如果前面任务耗费时间很长，那后面的任务就会阻塞，这有会照成资源分配浪费
+
+所以`JavaScript`语言设计者为了规避这个问题，把`JavaScript`所有的任务分为两种，**同步任务**和**异步任务**
+
+- **同步任务：** 在主线程上排队的任务，前一个任务执行完毕才能进行下一个任务
+- **异步任务：** 不进入主线程中执行，是进入任务队列的任务，只有任务队列通知主线程，某个异步任务可以执行了，任务才会进入主线程执行
+
+2. **`JavaScript`的事件循环（`EventLoop`）**
+**先进行同步操作，异步操作排在事件队列里**
+- 先判断是同步还是异步任务，同步任务就进入主线程，异步任务就进入`Event Table`
+- 异步任务在Event Table中注册事件，当满足触发条件的时候，会被推入到`Event Queue`
+- 同步任务进入到主线程中执行，当主线程空闲时，才会去`Event Queue`中看是否有需要执行的异步任务，如果有，就推入主线程中执行
+
+3. **宏任务和微任务是什么**
+**异步任务分为宏任务和微任务**
+- **宏任务：** `setTimeout`，`setInterval`，整体代码`script`
+- **微任务：** `Promise.then`
+**执行顺序：** 先执行微任务，再执行宏任务
+
+#### 常见题
+```js
+// 1、同步任务
+console.log(1)
+console.log(2)
+console.log(3)
+// 1 2 3
+
+// 2、异步任务
+console.log(1)
+setTimeout(() => console.log(2), 100)
+setTimeout(() => console.log(3), 0)
+console.log(4)
+// 1 4 3 2
+
+// 1.先执行同步任务，按照顺序一步步来
+// 2.然后开始执行异步任务，异步任务开始执行时，会将异步任务放入事件表格(EventTable)中，当满足了某些条件（比如这里的条件就是0ms和100ms) 之后，才会从事件表格中注册到事件队列(EventQueue)，当第1步中的同步事件完成了，才会从事件队列中获取任务去执行
+
+// 3、宏任务和微任务  同步 -> 微任务 -> 宏任务
+console.log(1)
+setTimeout(() => console.log(2))
+new Promise((resolve, reject) => {
+  console.log(3)
+  resolve()
+}).then(() => {
+  console.log(4)
+})
+setTimeout(() => console.log(5))
+new Promise((resolve, reject) => {
+  console.log(6)
+  reject()
+}).then(() => {
+  console.log(7)
+}).catch(() => {
+  console.log(8)
+})
+console.log(9)
+
+// 1 3 6 9 4 8 2 5
+
+// 4、混合任务题型
+console.log(1);
+setTimeout(() => {
+  console.log(2)
+  new Promise((resolve) => {
+    console.log(3)
+    resolve()
+  }).then(() => console.log(4))
+})
+
+new Promise((resolve) => {
+  console.log(5)
+  resolve()
+}).then(() => console.log(6))
+
+setTimeout(() => {
+  console.log(7)
+  new Promise((resolve) => {
+    console.log(8)
+    resolve()
+  }).then(() => console.log(9))
+})
+console.log(10)
+
+// 1 5 10 6  2 3 4  5 6  7 8 9
+```
+
+#### 总结
+- 同步先执行，异步后执行
+- 遇到`new Promise`直接执行，`then`中的方法直接放入微任务队列中
+- 遇到`setTimeout`放入宏任务队列中
+- 执行顺序：同步 --> 微任务(`promise then`) --> 宏任务(`setTimeout`)
