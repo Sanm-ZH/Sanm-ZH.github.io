@@ -91,4 +91,35 @@ define(['dependenceModule'], function(dependenceModule){
 ```
 当`require`函数加载`math`模块时，就会先加载`dependenceModule`模块。
 
-**特点：** 当有多个依赖时，就将所有的依赖都写在`define()`函数的第一个参数数组中，**所以说 `AMD` 是依赖前置**。这不同于`CommonJS`规范，他是依赖就近的。
+**特点：** 当有多个依赖时，就将所有的依赖都写在`define()`函数的第一个参数数组中，**所以说 `AMD` 是依赖前置**。这不同于`CMD`规范，他是依赖就近的。
+
+## CMD
+`CMD`为就近依赖，延迟执行，可以把你的依赖写进代码的任意一行：
+```js
+define(factory)
+```
+
+`factory` 为函数时，表示是模块的构造方法。执行该构造方法，可以得到模块向外提供的接口。`factory` 方法在执行时，默认会传入三个参数：`require`、`exports` 和 `module`
+```js
+// CMD
+define(function(require, exports, module) {
+  var a = require('./a');
+  a.doSomething();
+  var b = require('./b');
+  b.doSomething();
+})
+
+// AMD
+define(['a', 'b'], function(a, b) {
+  a.doSomething();
+  b.doSomething();
+})
+```
+`AMD`规范实际上是推广`Seajs`的产物。
+
+同样`Seajs`也是预加载依赖`js`跟`AMD`的规范在预加载这一点上是相同的，明显不同的地方是调用，和声明依赖的地方。`AMD`和`CMD`都是用`difine`和r`equire`，但是`CMD`标准倾向于在使用过程中提出依赖，就是不管代码写到哪突然发现需要依赖另一个模块，那就在当前代码用`require`引入就可以了，规范会帮你处理预加载（加载代码前将`require`提到前面所有运行完再执行后续代码）。但是AMD标准让你必须提前在头部依赖参数部分写好，这就是最明显的区别。
+
+`sea.js`通过`sea.use()`来加载模块。
+```js
+seajs.use(id, callback?)
+```
